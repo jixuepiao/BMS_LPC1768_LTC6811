@@ -192,6 +192,7 @@ void LED(void){
 		LED_light(Light_Num);
 		LED_Timer = 0;
 	}
+	LED_Timer++;
 }
 
 void SHUTDOWN(void){

@@ -60,7 +60,6 @@ Section Cross References
     main.o(i.main) refers to 6811.o(.data) for SYSTimer_num
     main.o(i.main) refers to bat.o(.data) for BAT_Timer
     main.o(i.main) refers to io.o(.data) for PRESSED
-    main.o(i.main) refers to ad7124.o(.data) for AD7124_COUNT
     main.o(i.main) refers to bat.o(.data) for CeOV_Timer
     main.o(i.main) refers to bat.o(.data) for CeUV_Timer
     main.o(i.main) refers to bat.o(.data) for PkOV_Timer
@@ -107,12 +106,12 @@ Section Cross References
     6811.o(i.LT68_NTC_Table_Lookup) refers to 6811.o(.data) for .data
     6811.o(i.LTC6811_CMD_init) refers to 6811.o(i.CMD_init) for CMD_init
     6811.o(i.LTC6811_CMD_init) refers to 6811.o(.data) for .data
-    6811.o(i.LTC6811_Mission) refers to gpio_lpc17xx.o(i.GPIO_PinWrite) for GPIO_PinWrite
-    6811.o(i.LTC6811_Mission) refers to 6811.o(i.LTC6811_MoveData) for LTC6811_MoveData
     6811.o(i.LTC6811_Mission) refers to 6811.o(i.pec15) for pec15
+    6811.o(i.LTC6811_Mission) refers to 6811.o(i.LTC6811_MoveData) for LTC6811_MoveData
     6811.o(i.LTC6811_Mission) refers to 6811.o(.data) for .data
     6811.o(i.LTC6811_Mission) refers to 6811.o(.bss) for .bss
     6811.o(i.LTC6811_Mission) refers to 6811.o(i.LTC6811_Readcmd) for LTC6811_Readcmd
+    6811.o(i.LTC6811_Mission) refers to gpio_lpc17xx.o(i.GPIO_PinWrite) for GPIO_PinWrite
     6811.o(i.LTC6811_Mission) refers to 6811.o(i.Balance) for Balance
     6811.o(i.LTC6811_Mission) refers to 6811.o(i.LTC6811_Writecmd) for LTC6811_Writecmd
     6811.o(i.LTC6811_Mission) refers to 6811.o(i.LTC6811_Sendcmd) for LTC6811_Sendcmd
@@ -259,11 +258,11 @@ Section Cross References
     ad7124.o(i.AD7124_Write_FILTER) refers to ssp1.o(i.SSP1_PutArray) for SSP1_PutArray
     ad7124.o(i.AD7124_Write_FILTER) refers to ad7124.o(.bss) for .bss
     ad7124.o(i.AD7124_mission) refers to ssp1.o(i.SSP1_PutArray) for SSP1_PutArray
-    ad7124.o(i.AD7124_mission) refers to ad7124.o(i.AD7124_Read_DATA) for AD7124_Read_DATA
-    ad7124.o(i.AD7124_mission) refers to ad7124.o(i.AD7124_Write_CHANNEL) for AD7124_Write_CHANNEL
-    ad7124.o(i.AD7124_mission) refers to ad7124.o(i.AD7124_CH_VoltGet) for AD7124_CH_VoltGet
     ad7124.o(i.AD7124_mission) refers to ad7124.o(i.AD7124_Write_CONFIGURATION) for AD7124_Write_CONFIGURATION
     ad7124.o(i.AD7124_mission) refers to ad7124.o(i.AD7124_Write_FILTER) for AD7124_Write_FILTER
+    ad7124.o(i.AD7124_mission) refers to ad7124.o(i.AD7124_Write_CHANNEL) for AD7124_Write_CHANNEL
+    ad7124.o(i.AD7124_mission) refers to ad7124.o(i.AD7124_Read_DATA) for AD7124_Read_DATA
+    ad7124.o(i.AD7124_mission) refers to ad7124.o(i.AD7124_CH_VoltGet) for AD7124_CH_VoltGet
     ad7124.o(i.AD7124_mission) refers to ad7124.o(.data) for .data
     ad7124.o(i.AD7124_mission) refers to ad7124.o(.bss) for .bss
     rtc.o(i.RTCGetTime) refers to rt_memcpy_w.o(.text) for __aeabi_memcpy4
@@ -441,7 +440,7 @@ Removing Unused input sections from the image.
     Removing ad.o(.revsh_text), (4 bytes).
     Removing ad.o(.rrx_text), (6 bytes).
     Removing ad.o(i.NTC_Table_Lookup), (112 bytes).
-    Removing ad.o(i.ad), (136 bytes).
+    Removing ad.o(i.ad), (144 bytes).
     Removing ad.o(i.ad_UartSend), (536 bytes).
     Removing ad.o(i.ad_datamath), (76 bytes).
     Removing ad.o(i.ad_max_min), (60 bytes).
@@ -540,7 +539,7 @@ Removing Unused input sections from the image.
     Removing system_lpc17xx.o(i.SystemCoreClockUpdate), (208 bytes).
     Removing system_lpc17xx.o(.data), (4 bytes).
 
-135 unused section(s) (total 5335 bytes) removed from the image.
+135 unused section(s) (total 5343 bytes) removed from the image.
 
 ==============================================================================
 
@@ -707,84 +706,84 @@ Image Symbol Table
     i.AD7124_Write_CONFIGURATION             0x000004cc   Section        0  ad7124.o(i.AD7124_Write_CONFIGURATION)
     i.AD7124_Write_FILTER                    0x00000530   Section        0  ad7124.o(i.AD7124_Write_FILTER)
     i.AD7124_mission                         0x00000570   Section        0  ad7124.o(i.AD7124_mission)
-    i.Array_Check                            0x00000688   Section        0  bat.o(i.Array_Check)
-    i.BAT                                    0x000006a8   Section        0  bat.o(i.BAT)
-    i.BAT_Protect_Status_get_slow            0x000006cc   Section        0  bat.o(i.BAT_Protect_Status_get_slow)
-    i.BAT_UartSend                           0x0000084c   Section        0  bat.o(i.BAT_UartSend)
-    i.BAT_Voltage_get                        0x00001370   Section        0  bat.o(i.BAT_Voltage_get)
-    i.Balance                                0x0000139c   Section        0  6811.o(i.Balance)
-    i.CAN_IRQHandler                         0x00001408   Section        0  can.o(i.CAN_IRQHandler)
-    i.CAN_recive                             0x00001464   Section        0  can.o(i.CAN_recive)
-    i.CAN_setup                              0x0000149c   Section        0  can.o(i.CAN_setup)
-    i.CAN_start                              0x00001568   Section        0  can.o(i.CAN_start)
-    i.CAN_waitReady                          0x00001580   Section        0  can.o(i.CAN_waitReady)
-    i.CAP                                    0x000015a4   Section        0  bat.o(i.CAP)
-    i.CHG_MOS                                0x00001694   Section        0  bat.o(i.CHG_MOS)
-    i.CMD_init                               0x000016c8   Section        0  6811.o(i.CMD_init)
-    i.CellVolt_Max_Min                       0x000016ec   Section        0  6811.o(i.CellVolt_Max_Min)
-    i.Current_get                            0x0000178c   Section        0  bat.o(i.Current_get)
-    i.DSG_MOS                                0x00001804   Section        0  bat.o(i.DSG_MOS)
-    i.EE_Date_Read                           0x00001838   Section        0  bat.o(i.EE_Date_Read)
-    i.EE_Date_Read_Check                     0x000018dc   Section        0  bat.o(i.EE_Date_Read_Check)
-    i.EE_Date_Save                           0x000019e4   Section        0  bat.o(i.EE_Date_Save)
-    i.From_Temp_Get_RTCap                    0x00001a64   Section        0  bat.o(i.From_Temp_Get_RTCap)
-    i.GPIO_PinRead                           0x00001ab0   Section        0  gpio_lpc17xx.o(i.GPIO_PinRead)
-    i.GPIO_PinWrite                          0x00001ac8   Section        0  gpio_lpc17xx.o(i.GPIO_PinWrite)
-    i.GPIO_PortClock                         0x00001ae0   Section        0  gpio_lpc17xx.o(i.GPIO_PortClock)
-    i.GPIO_SetDir                            0x00001afc   Section        0  gpio_lpc17xx.o(i.GPIO_SetDir)
-    i.Heat_MOS                               0x00001b1c   Section        0  bat.o(i.Heat_MOS)
-    i.I2C0_IRQHandler                        0x00001b50   Section        0  i2c.o(i.I2C0_IRQHandler)
-    i.IO_Init                                0x00001c30   Section        0  io.o(i.IO_Init)
-    i.KEYSCAN                                0x00001d3c   Section        0  io.o(i.KEYSCAN)
-    i.LED                                    0x00001d78   Section        0  io.o(i.LED)
-    i.LED_light                              0x00001eb4   Section        0  io.o(i.LED_light)
-    i.LT68_NTC_Table_Lookup                  0x00001f74   Section        0  6811.o(i.LT68_NTC_Table_Lookup)
-    i.LTC6811_CMD_init                       0x00001fe4   Section        0  6811.o(i.LTC6811_CMD_init)
-    i.LTC6811_Mission                        0x00002104   Section        0  6811.o(i.LTC6811_Mission)
-    i.LTC6811_MoveData                       0x000030a4   Section        0  6811.o(i.LTC6811_MoveData)
-    i.LTC6811_Readcmd                        0x00003130   Section        0  6811.o(i.LTC6811_Readcmd)
-    i.LTC6811_Sendcmd                        0x00003178   Section        0  6811.o(i.LTC6811_Sendcmd)
-    i.LTC6811_UartSend                       0x0000319c   Section        0  6811.o(i.LTC6811_UartSend)
-    i.LTC6811_WeekIdle                       0x00003a7c   Section        0  6811.o(i.LTC6811_WeekIdle)
-    i.LTC6811_Writecmd                       0x00003aac   Section        0  6811.o(i.LTC6811_Writecmd)
-    i.PIN_Configure                          0x00003ad0   Section        0  pin_lpc17xx.o(i.PIN_Configure)
-    i.PIN_ConfigureI2C0Pins                  0x00003b38   Section        0  pin_lpc17xx.o(i.PIN_ConfigureI2C0Pins)
-    i.Protection_deal                        0x00003b54   Section        0  bat.o(i.Protection_deal)
-    i.RTCGetTime                             0x00003c18   Section        0  rtc.o(i.RTCGetTime)
-    i.RTCInit                                0x00003c50   Section        0  rtc.o(i.RTCInit)
-    i.RTCStart                               0x00003c8c   Section        0  rtc.o(i.RTCStart)
-    i.RTC_IRQHandler                         0x00003ca0   Section        0  rtc.o(i.RTC_IRQHandler)
-    i.RTC_Send                               0x00003cbc   Section        0  rtc.o(i.RTC_Send)
-    i.Remain_CAP_Percent_get                 0x00003de4   Section        0  bat.o(i.Remain_CAP_Percent_get)
-    i.SHUTDOWN                               0x00003e5c   Section        0  io.o(i.SHUTDOWN)
-    i.SPI_6811_PutArray                      0x00003e68   Section        0  spi.o(i.SPI_6811_PutArray)
-    i.SPI_IRQHandler                         0x00003e9c   Section        0  spi.o(i.SPI_IRQHandler)
-    i.SPI_init                               0x00003ee8   Section        0  spi.o(i.SPI_init)
-    i.SSP1_PutArray                          0x00003f64   Section        0  ssp1.o(i.SSP1_PutArray)
-    i.SSP1_init                              0x00003fd0   Section        0  ssp1.o(i.SSP1_init)
-    i.SysTick_Handler                        0x00004040   Section        0  main.o(i.SysTick_Handler)
-    i.SystemInit                             0x000040e4   Section        0  system_lpc17xx.o(i.SystemInit)
-    i.UART1_IRQHandler                       0x000041b0   Section        0  uart.o(i.UART1_IRQHandler)
-    i.UART2_IRQHandler                       0x00004218   Section        0  uart.o(i.UART2_IRQHandler)
-    i.UART3_IRQHandler                       0x00004280   Section        0  uart.o(i.UART3_IRQHandler)
-    i.__NVIC_EnableIRQ                       0x000042e8   Section        0  uart.o(i.__NVIC_EnableIRQ)
-    __NVIC_EnableIRQ                         0x000042e9   Thumb Code    26  uart.o(i.__NVIC_EnableIRQ)
-    i.__NVIC_EnableIRQ                       0x00004302   Section        0  timer.o(i.__NVIC_EnableIRQ)
-    __NVIC_EnableIRQ                         0x00004303   Thumb Code    26  timer.o(i.__NVIC_EnableIRQ)
-    i.ad_init                                0x0000431c   Section        0  ad.o(i.ad_init)
-    i.ad_start                               0x000043c0   Section        0  ad.o(i.ad_start)
-    i.i2c0_init                              0x000043d8   Section        0  i2c.o(i.i2c0_init)
-    i.i2c0_start                             0x00004450   Section        0  i2c.o(i.i2c0_start)
-    i.init_PEC15_Table                       0x0000448c   Section        0  6811.o(i.init_PEC15_Table)
-    i.main                                   0x000044c8   Section        0  main.o(i.main)
-    i.pec15                                  0x00004a08   Section        0  6811.o(i.pec15)
-    i.timer3_init                            0x00004a3c   Section        0  timer.o(i.timer3_init)
-    i.uart1_init                             0x00004a74   Section        0  uart.o(i.uart1_init)
-    i.uart1_send                             0x00004af0   Section        0  uart.o(i.uart1_send)
-    i.uart2_init                             0x00004b1c   Section        0  uart.o(i.uart2_init)
-    i.uart3_init                             0x00004b88   Section        0  uart.o(i.uart3_init)
-    i.uart3_send                             0x00004bf4   Section        0  uart.o(i.uart3_send)
-    .constdata                               0x00004c10   Section       68  can.o(.constdata)
+    i.Array_Check                            0x00000690   Section        0  bat.o(i.Array_Check)
+    i.BAT                                    0x000006b0   Section        0  bat.o(i.BAT)
+    i.BAT_Protect_Status_get_slow            0x000006d4   Section        0  bat.o(i.BAT_Protect_Status_get_slow)
+    i.BAT_UartSend                           0x00000854   Section        0  bat.o(i.BAT_UartSend)
+    i.BAT_Voltage_get                        0x00001378   Section        0  bat.o(i.BAT_Voltage_get)
+    i.Balance                                0x000013a4   Section        0  6811.o(i.Balance)
+    i.CAN_IRQHandler                         0x00001410   Section        0  can.o(i.CAN_IRQHandler)
+    i.CAN_recive                             0x0000146c   Section        0  can.o(i.CAN_recive)
+    i.CAN_setup                              0x000014a4   Section        0  can.o(i.CAN_setup)
+    i.CAN_start                              0x00001570   Section        0  can.o(i.CAN_start)
+    i.CAN_waitReady                          0x00001588   Section        0  can.o(i.CAN_waitReady)
+    i.CAP                                    0x000015ac   Section        0  bat.o(i.CAP)
+    i.CHG_MOS                                0x0000169c   Section        0  bat.o(i.CHG_MOS)
+    i.CMD_init                               0x000016d0   Section        0  6811.o(i.CMD_init)
+    i.CellVolt_Max_Min                       0x000016f4   Section        0  6811.o(i.CellVolt_Max_Min)
+    i.Current_get                            0x00001794   Section        0  bat.o(i.Current_get)
+    i.DSG_MOS                                0x0000180c   Section        0  bat.o(i.DSG_MOS)
+    i.EE_Date_Read                           0x00001840   Section        0  bat.o(i.EE_Date_Read)
+    i.EE_Date_Read_Check                     0x000018e4   Section        0  bat.o(i.EE_Date_Read_Check)
+    i.EE_Date_Save                           0x000019ec   Section        0  bat.o(i.EE_Date_Save)
+    i.From_Temp_Get_RTCap                    0x00001a6c   Section        0  bat.o(i.From_Temp_Get_RTCap)
+    i.GPIO_PinRead                           0x00001ab8   Section        0  gpio_lpc17xx.o(i.GPIO_PinRead)
+    i.GPIO_PinWrite                          0x00001ad0   Section        0  gpio_lpc17xx.o(i.GPIO_PinWrite)
+    i.GPIO_PortClock                         0x00001ae8   Section        0  gpio_lpc17xx.o(i.GPIO_PortClock)
+    i.GPIO_SetDir                            0x00001b04   Section        0  gpio_lpc17xx.o(i.GPIO_SetDir)
+    i.Heat_MOS                               0x00001b24   Section        0  bat.o(i.Heat_MOS)
+    i.I2C0_IRQHandler                        0x00001b58   Section        0  i2c.o(i.I2C0_IRQHandler)
+    i.IO_Init                                0x00001c38   Section        0  io.o(i.IO_Init)
+    i.KEYSCAN                                0x00001d44   Section        0  io.o(i.KEYSCAN)
+    i.LED                                    0x00001d80   Section        0  io.o(i.LED)
+    i.LED_light                              0x00001ec0   Section        0  io.o(i.LED_light)
+    i.LT68_NTC_Table_Lookup                  0x00001f80   Section        0  6811.o(i.LT68_NTC_Table_Lookup)
+    i.LTC6811_CMD_init                       0x00001ff0   Section        0  6811.o(i.LTC6811_CMD_init)
+    i.LTC6811_Mission                        0x00002110   Section        0  6811.o(i.LTC6811_Mission)
+    i.LTC6811_MoveData                       0x000030a0   Section        0  6811.o(i.LTC6811_MoveData)
+    i.LTC6811_Readcmd                        0x0000312c   Section        0  6811.o(i.LTC6811_Readcmd)
+    i.LTC6811_Sendcmd                        0x00003174   Section        0  6811.o(i.LTC6811_Sendcmd)
+    i.LTC6811_UartSend                       0x00003198   Section        0  6811.o(i.LTC6811_UartSend)
+    i.LTC6811_WeekIdle                       0x00003a78   Section        0  6811.o(i.LTC6811_WeekIdle)
+    i.LTC6811_Writecmd                       0x00003aa8   Section        0  6811.o(i.LTC6811_Writecmd)
+    i.PIN_Configure                          0x00003acc   Section        0  pin_lpc17xx.o(i.PIN_Configure)
+    i.PIN_ConfigureI2C0Pins                  0x00003b34   Section        0  pin_lpc17xx.o(i.PIN_ConfigureI2C0Pins)
+    i.Protection_deal                        0x00003b50   Section        0  bat.o(i.Protection_deal)
+    i.RTCGetTime                             0x00003c14   Section        0  rtc.o(i.RTCGetTime)
+    i.RTCInit                                0x00003c4c   Section        0  rtc.o(i.RTCInit)
+    i.RTCStart                               0x00003c88   Section        0  rtc.o(i.RTCStart)
+    i.RTC_IRQHandler                         0x00003c9c   Section        0  rtc.o(i.RTC_IRQHandler)
+    i.RTC_Send                               0x00003cb8   Section        0  rtc.o(i.RTC_Send)
+    i.Remain_CAP_Percent_get                 0x00003de0   Section        0  bat.o(i.Remain_CAP_Percent_get)
+    i.SHUTDOWN                               0x00003e58   Section        0  io.o(i.SHUTDOWN)
+    i.SPI_6811_PutArray                      0x00003e64   Section        0  spi.o(i.SPI_6811_PutArray)
+    i.SPI_IRQHandler                         0x00003e98   Section        0  spi.o(i.SPI_IRQHandler)
+    i.SPI_init                               0x00003ee4   Section        0  spi.o(i.SPI_init)
+    i.SSP1_PutArray                          0x00003f60   Section        0  ssp1.o(i.SSP1_PutArray)
+    i.SSP1_init                              0x00003fcc   Section        0  ssp1.o(i.SSP1_init)
+    i.SysTick_Handler                        0x0000403c   Section        0  main.o(i.SysTick_Handler)
+    i.SystemInit                             0x000040e0   Section        0  system_lpc17xx.o(i.SystemInit)
+    i.UART1_IRQHandler                       0x000041ac   Section        0  uart.o(i.UART1_IRQHandler)
+    i.UART2_IRQHandler                       0x00004214   Section        0  uart.o(i.UART2_IRQHandler)
+    i.UART3_IRQHandler                       0x0000427c   Section        0  uart.o(i.UART3_IRQHandler)
+    i.__NVIC_EnableIRQ                       0x000042e4   Section        0  uart.o(i.__NVIC_EnableIRQ)
+    __NVIC_EnableIRQ                         0x000042e5   Thumb Code    26  uart.o(i.__NVIC_EnableIRQ)
+    i.__NVIC_EnableIRQ                       0x000042fe   Section        0  timer.o(i.__NVIC_EnableIRQ)
+    __NVIC_EnableIRQ                         0x000042ff   Thumb Code    26  timer.o(i.__NVIC_EnableIRQ)
+    i.ad_init                                0x00004318   Section        0  ad.o(i.ad_init)
+    i.ad_start                               0x000043bc   Section        0  ad.o(i.ad_start)
+    i.i2c0_init                              0x000043d4   Section        0  i2c.o(i.i2c0_init)
+    i.i2c0_start                             0x0000444c   Section        0  i2c.o(i.i2c0_start)
+    i.init_PEC15_Table                       0x00004488   Section        0  6811.o(i.init_PEC15_Table)
+    i.main                                   0x000044c4   Section        0  main.o(i.main)
+    i.pec15                                  0x000049e0   Section        0  6811.o(i.pec15)
+    i.timer3_init                            0x00004a14   Section        0  timer.o(i.timer3_init)
+    i.uart1_init                             0x00004a4c   Section        0  uart.o(i.uart1_init)
+    i.uart1_send                             0x00004ac8   Section        0  uart.o(i.uart1_send)
+    i.uart2_init                             0x00004af4   Section        0  uart.o(i.uart2_init)
+    i.uart3_init                             0x00004b60   Section        0  uart.o(i.uart3_init)
+    i.uart3_send                             0x00004bcc   Section        0  uart.o(i.uart3_send)
+    .constdata                               0x00004be8   Section       68  can.o(.constdata)
     .data                                    0x10000000   Section       46  main.o(.data)
     .data                                    0x10000030   Section       48  uart.o(.data)
     .data                                    0x10000060   Section       12  spi.o(.data)
@@ -965,83 +964,83 @@ Image Symbol Table
     AD7124_Write_CHANNEL                     0x00000495   Thumb Code    50  ad7124.o(i.AD7124_Write_CHANNEL)
     AD7124_Write_CONFIGURATION               0x000004cd   Thumb Code    94  ad7124.o(i.AD7124_Write_CONFIGURATION)
     AD7124_Write_FILTER                      0x00000531   Thumb Code    60  ad7124.o(i.AD7124_Write_FILTER)
-    AD7124_mission                           0x00000571   Thumb Code   268  ad7124.o(i.AD7124_mission)
-    Array_Check                              0x00000689   Thumb Code    30  bat.o(i.Array_Check)
-    BAT                                      0x000006a9   Thumb Code    32  bat.o(i.BAT)
-    BAT_Protect_Status_get_slow              0x000006cd   Thumb Code   370  bat.o(i.BAT_Protect_Status_get_slow)
-    BAT_UartSend                             0x0000084d   Thumb Code  2842  bat.o(i.BAT_UartSend)
-    BAT_Voltage_get                          0x00001371   Thumb Code    36  bat.o(i.BAT_Voltage_get)
-    Balance                                  0x0000139d   Thumb Code   102  6811.o(i.Balance)
-    CAN_IRQHandler                           0x00001409   Thumb Code    74  can.o(i.CAN_IRQHandler)
-    CAN_recive                               0x00001465   Thumb Code    48  can.o(i.CAN_recive)
-    CAN_setup                                0x0000149d   Thumb Code   170  can.o(i.CAN_setup)
-    CAN_start                                0x00001569   Thumb Code    14  can.o(i.CAN_start)
-    CAN_waitReady                            0x00001581   Thumb Code    24  can.o(i.CAN_waitReady)
-    CAP                                      0x000015a5   Thumb Code   228  bat.o(i.CAP)
-    CHG_MOS                                  0x00001695   Thumb Code    46  bat.o(i.CHG_MOS)
-    CMD_init                                 0x000016c9   Thumb Code    34  6811.o(i.CMD_init)
-    CellVolt_Max_Min                         0x000016ed   Thumb Code   156  6811.o(i.CellVolt_Max_Min)
-    Current_get                              0x0000178d   Thumb Code   110  bat.o(i.Current_get)
-    DSG_MOS                                  0x00001805   Thumb Code    46  bat.o(i.DSG_MOS)
-    EE_Date_Read                             0x00001839   Thumb Code   158  bat.o(i.EE_Date_Read)
-    EE_Date_Read_Check                       0x000018dd   Thumb Code   260  bat.o(i.EE_Date_Read_Check)
-    EE_Date_Save                             0x000019e5   Thumb Code   122  bat.o(i.EE_Date_Save)
-    From_Temp_Get_RTCap                      0x00001a65   Thumb Code    68  bat.o(i.From_Temp_Get_RTCap)
-    GPIO_PinRead                             0x00001ab1   Thumb Code    20  gpio_lpc17xx.o(i.GPIO_PinRead)
-    GPIO_PinWrite                            0x00001ac9   Thumb Code    20  gpio_lpc17xx.o(i.GPIO_PinWrite)
-    GPIO_PortClock                           0x00001ae1   Thumb Code    24  gpio_lpc17xx.o(i.GPIO_PortClock)
-    GPIO_SetDir                              0x00001afd   Thumb Code    26  gpio_lpc17xx.o(i.GPIO_SetDir)
-    Heat_MOS                                 0x00001b1d   Thumb Code    46  bat.o(i.Heat_MOS)
-    I2C0_IRQHandler                          0x00001b51   Thumb Code   216  i2c.o(i.I2C0_IRQHandler)
-    IO_Init                                  0x00001c31   Thumb Code   266  io.o(i.IO_Init)
-    KEYSCAN                                  0x00001d3d   Thumb Code    54  io.o(i.KEYSCAN)
-    LED                                      0x00001d79   Thumb Code   302  io.o(i.LED)
-    LED_light                                0x00001eb5   Thumb Code   192  io.o(i.LED_light)
-    LT68_NTC_Table_Lookup                    0x00001f75   Thumb Code   104  6811.o(i.LT68_NTC_Table_Lookup)
-    LTC6811_CMD_init                         0x00001fe5   Thumb Code   284  6811.o(i.LTC6811_CMD_init)
-    LTC6811_Mission                          0x00002105   Thumb Code  3990  6811.o(i.LTC6811_Mission)
-    LTC6811_MoveData                         0x000030a5   Thumb Code   136  6811.o(i.LTC6811_MoveData)
-    LTC6811_Readcmd                          0x00003131   Thumb Code    62  6811.o(i.LTC6811_Readcmd)
-    LTC6811_Sendcmd                          0x00003179   Thumb Code    28  6811.o(i.LTC6811_Sendcmd)
-    LTC6811_UartSend                         0x0000319d   Thumb Code  2260  6811.o(i.LTC6811_UartSend)
-    LTC6811_WeekIdle                         0x00003a7d   Thumb Code    38  6811.o(i.LTC6811_WeekIdle)
-    LTC6811_Writecmd                         0x00003aad   Thumb Code    28  6811.o(i.LTC6811_Writecmd)
-    PIN_Configure                            0x00003ad1   Thumb Code   100  pin_lpc17xx.o(i.PIN_Configure)
-    PIN_ConfigureI2C0Pins                    0x00003b39   Thumb Code    22  pin_lpc17xx.o(i.PIN_ConfigureI2C0Pins)
-    Protection_deal                          0x00003b55   Thumb Code   192  bat.o(i.Protection_deal)
-    RTCGetTime                               0x00003c19   Thumb Code    52  rtc.o(i.RTCGetTime)
-    RTCInit                                  0x00003c51   Thumb Code    48  rtc.o(i.RTCInit)
-    RTCStart                                 0x00003c8d   Thumb Code    16  rtc.o(i.RTCStart)
-    RTC_IRQHandler                           0x00003ca1   Thumb Code    18  rtc.o(i.RTC_IRQHandler)
-    RTC_Send                                 0x00003cbd   Thumb Code   292  rtc.o(i.RTC_Send)
-    Remain_CAP_Percent_get                   0x00003de5   Thumb Code   114  bat.o(i.Remain_CAP_Percent_get)
-    SHUTDOWN                                 0x00003e5d   Thumb Code    10  io.o(i.SHUTDOWN)
-    SPI_6811_PutArray                        0x00003e69   Thumb Code    42  spi.o(i.SPI_6811_PutArray)
-    SPI_IRQHandler                           0x00003e9d   Thumb Code    64  spi.o(i.SPI_IRQHandler)
-    SPI_init                                 0x00003ee9   Thumb Code   114  spi.o(i.SPI_init)
-    SSP1_PutArray                            0x00003f65   Thumb Code    94  ssp1.o(i.SSP1_PutArray)
-    SSP1_init                                0x00003fd1   Thumb Code   104  ssp1.o(i.SSP1_init)
-    SysTick_Handler                          0x00004041   Thumb Code   122  main.o(i.SysTick_Handler)
-    SystemInit                               0x000040e5   Thumb Code   192  system_lpc17xx.o(i.SystemInit)
-    UART1_IRQHandler                         0x000041b1   Thumb Code    94  uart.o(i.UART1_IRQHandler)
-    UART2_IRQHandler                         0x00004219   Thumb Code    94  uart.o(i.UART2_IRQHandler)
-    UART3_IRQHandler                         0x00004281   Thumb Code    94  uart.o(i.UART3_IRQHandler)
-    ad_init                                  0x0000431d   Thumb Code   150  ad.o(i.ad_init)
-    ad_start                                 0x000043c1   Thumb Code    20  ad.o(i.ad_start)
-    i2c0_init                                0x000043d9   Thumb Code   110  i2c.o(i.i2c0_init)
-    i2c0_start                               0x00004451   Thumb Code    50  i2c.o(i.i2c0_start)
-    init_PEC15_Table                         0x0000448d   Thumb Code    52  6811.o(i.init_PEC15_Table)
-    main                                     0x000044c9   Thumb Code  1178  main.o(i.main)
-    pec15                                    0x00004a09   Thumb Code    46  6811.o(i.pec15)
-    timer3_init                              0x00004a3d   Thumb Code    48  timer.o(i.timer3_init)
-    uart1_init                               0x00004a75   Thumb Code   116  uart.o(i.uart1_init)
-    uart1_send                               0x00004af1   Thumb Code    34  uart.o(i.uart1_send)
-    uart2_init                               0x00004b1d   Thumb Code    98  uart.o(i.uart2_init)
-    uart3_init                               0x00004b89   Thumb Code    98  uart.o(i.uart3_init)
-    uart3_send                               0x00004bf5   Thumb Code    18  uart.o(i.uart3_send)
-    CAN_BIT_TIME                             0x00004c10   Data          68  can.o(.constdata)
-    Region$$Table$$Base                      0x00004c54   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00004c94   Number         0  anon$$obj.o(Region$$Table)
+    AD7124_mission                           0x00000571   Thumb Code   274  ad7124.o(i.AD7124_mission)
+    Array_Check                              0x00000691   Thumb Code    30  bat.o(i.Array_Check)
+    BAT                                      0x000006b1   Thumb Code    32  bat.o(i.BAT)
+    BAT_Protect_Status_get_slow              0x000006d5   Thumb Code   370  bat.o(i.BAT_Protect_Status_get_slow)
+    BAT_UartSend                             0x00000855   Thumb Code  2842  bat.o(i.BAT_UartSend)
+    BAT_Voltage_get                          0x00001379   Thumb Code    36  bat.o(i.BAT_Voltage_get)
+    Balance                                  0x000013a5   Thumb Code   102  6811.o(i.Balance)
+    CAN_IRQHandler                           0x00001411   Thumb Code    74  can.o(i.CAN_IRQHandler)
+    CAN_recive                               0x0000146d   Thumb Code    48  can.o(i.CAN_recive)
+    CAN_setup                                0x000014a5   Thumb Code   170  can.o(i.CAN_setup)
+    CAN_start                                0x00001571   Thumb Code    14  can.o(i.CAN_start)
+    CAN_waitReady                            0x00001589   Thumb Code    24  can.o(i.CAN_waitReady)
+    CAP                                      0x000015ad   Thumb Code   228  bat.o(i.CAP)
+    CHG_MOS                                  0x0000169d   Thumb Code    46  bat.o(i.CHG_MOS)
+    CMD_init                                 0x000016d1   Thumb Code    34  6811.o(i.CMD_init)
+    CellVolt_Max_Min                         0x000016f5   Thumb Code   156  6811.o(i.CellVolt_Max_Min)
+    Current_get                              0x00001795   Thumb Code   110  bat.o(i.Current_get)
+    DSG_MOS                                  0x0000180d   Thumb Code    46  bat.o(i.DSG_MOS)
+    EE_Date_Read                             0x00001841   Thumb Code   158  bat.o(i.EE_Date_Read)
+    EE_Date_Read_Check                       0x000018e5   Thumb Code   260  bat.o(i.EE_Date_Read_Check)
+    EE_Date_Save                             0x000019ed   Thumb Code   122  bat.o(i.EE_Date_Save)
+    From_Temp_Get_RTCap                      0x00001a6d   Thumb Code    68  bat.o(i.From_Temp_Get_RTCap)
+    GPIO_PinRead                             0x00001ab9   Thumb Code    20  gpio_lpc17xx.o(i.GPIO_PinRead)
+    GPIO_PinWrite                            0x00001ad1   Thumb Code    20  gpio_lpc17xx.o(i.GPIO_PinWrite)
+    GPIO_PortClock                           0x00001ae9   Thumb Code    24  gpio_lpc17xx.o(i.GPIO_PortClock)
+    GPIO_SetDir                              0x00001b05   Thumb Code    26  gpio_lpc17xx.o(i.GPIO_SetDir)
+    Heat_MOS                                 0x00001b25   Thumb Code    46  bat.o(i.Heat_MOS)
+    I2C0_IRQHandler                          0x00001b59   Thumb Code   216  i2c.o(i.I2C0_IRQHandler)
+    IO_Init                                  0x00001c39   Thumb Code   266  io.o(i.IO_Init)
+    KEYSCAN                                  0x00001d45   Thumb Code    54  io.o(i.KEYSCAN)
+    LED                                      0x00001d81   Thumb Code   308  io.o(i.LED)
+    LED_light                                0x00001ec1   Thumb Code   192  io.o(i.LED_light)
+    LT68_NTC_Table_Lookup                    0x00001f81   Thumb Code   104  6811.o(i.LT68_NTC_Table_Lookup)
+    LTC6811_CMD_init                         0x00001ff1   Thumb Code   284  6811.o(i.LTC6811_CMD_init)
+    LTC6811_Mission                          0x00002111   Thumb Code  3978  6811.o(i.LTC6811_Mission)
+    LTC6811_MoveData                         0x000030a1   Thumb Code   136  6811.o(i.LTC6811_MoveData)
+    LTC6811_Readcmd                          0x0000312d   Thumb Code    62  6811.o(i.LTC6811_Readcmd)
+    LTC6811_Sendcmd                          0x00003175   Thumb Code    28  6811.o(i.LTC6811_Sendcmd)
+    LTC6811_UartSend                         0x00003199   Thumb Code  2260  6811.o(i.LTC6811_UartSend)
+    LTC6811_WeekIdle                         0x00003a79   Thumb Code    38  6811.o(i.LTC6811_WeekIdle)
+    LTC6811_Writecmd                         0x00003aa9   Thumb Code    28  6811.o(i.LTC6811_Writecmd)
+    PIN_Configure                            0x00003acd   Thumb Code   100  pin_lpc17xx.o(i.PIN_Configure)
+    PIN_ConfigureI2C0Pins                    0x00003b35   Thumb Code    22  pin_lpc17xx.o(i.PIN_ConfigureI2C0Pins)
+    Protection_deal                          0x00003b51   Thumb Code   192  bat.o(i.Protection_deal)
+    RTCGetTime                               0x00003c15   Thumb Code    52  rtc.o(i.RTCGetTime)
+    RTCInit                                  0x00003c4d   Thumb Code    48  rtc.o(i.RTCInit)
+    RTCStart                                 0x00003c89   Thumb Code    16  rtc.o(i.RTCStart)
+    RTC_IRQHandler                           0x00003c9d   Thumb Code    18  rtc.o(i.RTC_IRQHandler)
+    RTC_Send                                 0x00003cb9   Thumb Code   292  rtc.o(i.RTC_Send)
+    Remain_CAP_Percent_get                   0x00003de1   Thumb Code   114  bat.o(i.Remain_CAP_Percent_get)
+    SHUTDOWN                                 0x00003e59   Thumb Code    10  io.o(i.SHUTDOWN)
+    SPI_6811_PutArray                        0x00003e65   Thumb Code    42  spi.o(i.SPI_6811_PutArray)
+    SPI_IRQHandler                           0x00003e99   Thumb Code    64  spi.o(i.SPI_IRQHandler)
+    SPI_init                                 0x00003ee5   Thumb Code   114  spi.o(i.SPI_init)
+    SSP1_PutArray                            0x00003f61   Thumb Code    94  ssp1.o(i.SSP1_PutArray)
+    SSP1_init                                0x00003fcd   Thumb Code   104  ssp1.o(i.SSP1_init)
+    SysTick_Handler                          0x0000403d   Thumb Code   122  main.o(i.SysTick_Handler)
+    SystemInit                               0x000040e1   Thumb Code   192  system_lpc17xx.o(i.SystemInit)
+    UART1_IRQHandler                         0x000041ad   Thumb Code    94  uart.o(i.UART1_IRQHandler)
+    UART2_IRQHandler                         0x00004215   Thumb Code    94  uart.o(i.UART2_IRQHandler)
+    UART3_IRQHandler                         0x0000427d   Thumb Code    94  uart.o(i.UART3_IRQHandler)
+    ad_init                                  0x00004319   Thumb Code   150  ad.o(i.ad_init)
+    ad_start                                 0x000043bd   Thumb Code    20  ad.o(i.ad_start)
+    i2c0_init                                0x000043d5   Thumb Code   110  i2c.o(i.i2c0_init)
+    i2c0_start                               0x0000444d   Thumb Code    50  i2c.o(i.i2c0_start)
+    init_PEC15_Table                         0x00004489   Thumb Code    52  6811.o(i.init_PEC15_Table)
+    main                                     0x000044c5   Thumb Code  1154  main.o(i.main)
+    pec15                                    0x000049e1   Thumb Code    46  6811.o(i.pec15)
+    timer3_init                              0x00004a15   Thumb Code    48  timer.o(i.timer3_init)
+    uart1_init                               0x00004a4d   Thumb Code   116  uart.o(i.uart1_init)
+    uart1_send                               0x00004ac9   Thumb Code    34  uart.o(i.uart1_send)
+    uart2_init                               0x00004af5   Thumb Code    98  uart.o(i.uart2_init)
+    uart3_init                               0x00004b61   Thumb Code    98  uart.o(i.uart3_init)
+    uart3_send                               0x00004bcd   Thumb Code    18  uart.o(i.uart3_send)
+    CAN_BIT_TIME                             0x00004be8   Data          68  can.o(.constdata)
+    Region$$Table$$Base                      0x00004c2c   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00004c6c   Number         0  anon$$obj.o(Region$$Table)
     ms_interrupt_status                      0x10000000   Data           1  main.o(.data)
     RUN_Status                               0x10000001   Data           1  main.o(.data)
     i                                        0x10000002   Data           1  main.o(.data)
@@ -1229,9 +1228,9 @@ Memory Map of the image
 
   Image Entry point : 0x000000cd
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x000051fc, Max: 0x00080000, ABSOLUTE, COMPRESSED[0x00004fac])
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x000051d4, Max: 0x00080000, ABSOLUTE, COMPRESSED[0x00004f84])
 
-    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00004c94, Max: 0x00080000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00004c6c, Max: 0x00080000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1305,112 +1304,112 @@ Memory Map of the image
     0x00000494   0x00000494   0x00000038   Code   RO         1048    i.AD7124_Write_CHANNEL  ad7124.o
     0x000004cc   0x000004cc   0x00000064   Code   RO         1049    i.AD7124_Write_CONFIGURATION  ad7124.o
     0x00000530   0x00000530   0x00000040   Code   RO         1050    i.AD7124_Write_FILTER  ad7124.o
-    0x00000570   0x00000570   0x00000118   Code   RO         1051    i.AD7124_mission    ad7124.o
-    0x00000688   0x00000688   0x0000001e   Code   RO          641    i.Array_Check       bat.o
-    0x000006a6   0x000006a6   0x00000002   PAD
-    0x000006a8   0x000006a8   0x00000024   Code   RO          642    i.BAT               bat.o
-    0x000006cc   0x000006cc   0x00000180   Code   RO          643    i.BAT_Protect_Status_get_slow  bat.o
-    0x0000084c   0x0000084c   0x00000b24   Code   RO          644    i.BAT_UartSend      bat.o
-    0x00001370   0x00001370   0x0000002c   Code   RO          645    i.BAT_Voltage_get   bat.o
-    0x0000139c   0x0000139c   0x0000006c   Code   RO          316    i.Balance           6811.o
-    0x00001408   0x00001408   0x0000005c   Code   RO          553    i.CAN_IRQHandler    can.o
-    0x00001464   0x00001464   0x00000038   Code   RO          556    i.CAN_recive        can.o
-    0x0000149c   0x0000149c   0x000000cc   Code   RO          559    i.CAN_setup         can.o
-    0x00001568   0x00001568   0x00000018   Code   RO          560    i.CAN_start         can.o
-    0x00001580   0x00001580   0x00000024   Code   RO          562    i.CAN_waitReady     can.o
-    0x000015a4   0x000015a4   0x000000f0   Code   RO          646    i.CAP               bat.o
-    0x00001694   0x00001694   0x00000034   Code   RO          647    i.CHG_MOS           bat.o
-    0x000016c8   0x000016c8   0x00000022   Code   RO          317    i.CMD_init          6811.o
-    0x000016ea   0x000016ea   0x00000002   PAD
-    0x000016ec   0x000016ec   0x000000a0   Code   RO          318    i.CellVolt_Max_Min  6811.o
-    0x0000178c   0x0000178c   0x00000078   Code   RO          649    i.Current_get       bat.o
-    0x00001804   0x00001804   0x00000034   Code   RO          650    i.DSG_MOS           bat.o
-    0x00001838   0x00001838   0x000000a4   Code   RO          651    i.EE_Date_Read      bat.o
-    0x000018dc   0x000018dc   0x00000108   Code   RO          652    i.EE_Date_Read_Check  bat.o
-    0x000019e4   0x000019e4   0x00000080   Code   RO          653    i.EE_Date_Save      bat.o
-    0x00001a64   0x00001a64   0x0000004c   Code   RO          655    i.From_Temp_Get_RTCap  bat.o
-    0x00001ab0   0x00001ab0   0x00000018   Code   RO         1201    i.GPIO_PinRead      gpio_lpc17xx.o
-    0x00001ac8   0x00001ac8   0x00000018   Code   RO         1202    i.GPIO_PinWrite     gpio_lpc17xx.o
-    0x00001ae0   0x00001ae0   0x0000001c   Code   RO         1203    i.GPIO_PortClock    gpio_lpc17xx.o
-    0x00001afc   0x00001afc   0x00000020   Code   RO         1206    i.GPIO_SetDir       gpio_lpc17xx.o
-    0x00001b1c   0x00001b1c   0x00000034   Code   RO          658    i.Heat_MOS          bat.o
-    0x00001b50   0x00001b50   0x000000e0   Code   RO          509    i.I2C0_IRQHandler   i2c.o
-    0x00001c30   0x00001c30   0x0000010a   Code   RO          822    i.IO_Init           io.o
-    0x00001d3a   0x00001d3a   0x00000002   PAD
-    0x00001d3c   0x00001d3c   0x0000003c   Code   RO          823    i.KEYSCAN           io.o
-    0x00001d78   0x00001d78   0x0000013c   Code   RO          824    i.LED               io.o
-    0x00001eb4   0x00001eb4   0x000000c0   Code   RO          825    i.LED_light         io.o
-    0x00001f74   0x00001f74   0x00000070   Code   RO          319    i.LT68_NTC_Table_Lookup  6811.o
-    0x00001fe4   0x00001fe4   0x00000120   Code   RO          320    i.LTC6811_CMD_init  6811.o
-    0x00002104   0x00002104   0x00000fa0   Code   RO          321    i.LTC6811_Mission   6811.o
-    0x000030a4   0x000030a4   0x0000008c   Code   RO          322    i.LTC6811_MoveData  6811.o
-    0x00003130   0x00003130   0x00000048   Code   RO          323    i.LTC6811_Readcmd   6811.o
-    0x00003178   0x00003178   0x00000024   Code   RO          324    i.LTC6811_Sendcmd   6811.o
-    0x0000319c   0x0000319c   0x000008e0   Code   RO          325    i.LTC6811_UartSend  6811.o
-    0x00003a7c   0x00003a7c   0x00000030   Code   RO          326    i.LTC6811_WeekIdle  6811.o
-    0x00003aac   0x00003aac   0x00000024   Code   RO          327    i.LTC6811_Writecmd  6811.o
-    0x00003ad0   0x00003ad0   0x00000068   Code   RO         1255    i.PIN_Configure     pin_lpc17xx.o
-    0x00003b38   0x00003b38   0x0000001c   Code   RO         1256    i.PIN_ConfigureI2C0Pins  pin_lpc17xx.o
-    0x00003b54   0x00003b54   0x000000c4   Code   RO          660    i.Protection_deal   bat.o
-    0x00003c18   0x00003c18   0x00000038   Code   RO         1112    i.RTCGetTime        rtc.o
-    0x00003c50   0x00003c50   0x0000003c   Code   RO         1113    i.RTCInit           rtc.o
-    0x00003c8c   0x00003c8c   0x00000014   Code   RO         1117    i.RTCStart          rtc.o
-    0x00003ca0   0x00003ca0   0x0000001c   Code   RO         1120    i.RTC_IRQHandler    rtc.o
-    0x00003cbc   0x00003cbc   0x00000128   Code   RO         1121    i.RTC_Send          rtc.o
-    0x00003de4   0x00003de4   0x00000078   Code   RO          661    i.Remain_CAP_Percent_get  bat.o
-    0x00003e5c   0x00003e5c   0x0000000a   Code   RO          826    i.SHUTDOWN          io.o
-    0x00003e66   0x00003e66   0x00000002   PAD
-    0x00003e68   0x00003e68   0x00000034   Code   RO          262    i.SPI_6811_PutArray  spi.o
-    0x00003e9c   0x00003e9c   0x0000004c   Code   RO          264    i.SPI_IRQHandler    spi.o
-    0x00003ee8   0x00003ee8   0x0000007c   Code   RO          265    i.SPI_init          spi.o
-    0x00003f64   0x00003f64   0x0000006c   Code   RO          997    i.SSP1_PutArray     ssp1.o
-    0x00003fd0   0x00003fd0   0x00000070   Code   RO          999    i.SSP1_init         ssp1.o
-    0x00004040   0x00004040   0x000000a4   Code   RO            7    i.SysTick_Handler   main.o
-    0x000040e4   0x000040e4   0x000000cc   Code   RO         1302    i.SystemInit        system_lpc17xx.o
-    0x000041b0   0x000041b0   0x00000068   Code   RO          150    i.UART1_IRQHandler  uart.o
-    0x00004218   0x00004218   0x00000068   Code   RO          151    i.UART2_IRQHandler  uart.o
-    0x00004280   0x00004280   0x00000068   Code   RO          152    i.UART3_IRQHandler  uart.o
-    0x000042e8   0x000042e8   0x0000001a   Code   RO          153    i.__NVIC_EnableIRQ  uart.o
-    0x00004302   0x00004302   0x0000001a   Code   RO          876    i.__NVIC_EnableIRQ  timer.o
-    0x0000431c   0x0000431c   0x000000a4   Code   RO          437    i.ad_init           ad.o
-    0x000043c0   0x000043c0   0x00000018   Code   RO          440    i.ad_start          ad.o
-    0x000043d8   0x000043d8   0x00000078   Code   RO          510    i.i2c0_init         i2c.o
-    0x00004450   0x00004450   0x0000003c   Code   RO          511    i.i2c0_start        i2c.o
-    0x0000448c   0x0000448c   0x0000003c   Code   RO          328    i.init_PEC15_Table  6811.o
-    0x000044c8   0x000044c8   0x00000540   Code   RO            8    i.main              main.o
-    0x00004a08   0x00004a08   0x00000034   Code   RO          329    i.pec15             6811.o
-    0x00004a3c   0x00004a3c   0x00000038   Code   RO          882    i.timer3_init       timer.o
-    0x00004a74   0x00004a74   0x0000007c   Code   RO          154    i.uart1_init        uart.o
-    0x00004af0   0x00004af0   0x0000002c   Code   RO          156    i.uart1_send        uart.o
-    0x00004b1c   0x00004b1c   0x0000006c   Code   RO          157    i.uart2_init        uart.o
-    0x00004b88   0x00004b88   0x0000006c   Code   RO          160    i.uart3_init        uart.o
-    0x00004bf4   0x00004bf4   0x0000001c   Code   RO          162    i.uart3_send        uart.o
-    0x00004c10   0x00004c10   0x00000044   Data   RO          564    .constdata          can.o
-    0x00004c54   0x00004c54   0x00000040   Data   RO         1507    Region$$Table       anon$$obj.o
+    0x00000570   0x00000570   0x00000120   Code   RO         1051    i.AD7124_mission    ad7124.o
+    0x00000690   0x00000690   0x0000001e   Code   RO          641    i.Array_Check       bat.o
+    0x000006ae   0x000006ae   0x00000002   PAD
+    0x000006b0   0x000006b0   0x00000024   Code   RO          642    i.BAT               bat.o
+    0x000006d4   0x000006d4   0x00000180   Code   RO          643    i.BAT_Protect_Status_get_slow  bat.o
+    0x00000854   0x00000854   0x00000b24   Code   RO          644    i.BAT_UartSend      bat.o
+    0x00001378   0x00001378   0x0000002c   Code   RO          645    i.BAT_Voltage_get   bat.o
+    0x000013a4   0x000013a4   0x0000006c   Code   RO          316    i.Balance           6811.o
+    0x00001410   0x00001410   0x0000005c   Code   RO          553    i.CAN_IRQHandler    can.o
+    0x0000146c   0x0000146c   0x00000038   Code   RO          556    i.CAN_recive        can.o
+    0x000014a4   0x000014a4   0x000000cc   Code   RO          559    i.CAN_setup         can.o
+    0x00001570   0x00001570   0x00000018   Code   RO          560    i.CAN_start         can.o
+    0x00001588   0x00001588   0x00000024   Code   RO          562    i.CAN_waitReady     can.o
+    0x000015ac   0x000015ac   0x000000f0   Code   RO          646    i.CAP               bat.o
+    0x0000169c   0x0000169c   0x00000034   Code   RO          647    i.CHG_MOS           bat.o
+    0x000016d0   0x000016d0   0x00000022   Code   RO          317    i.CMD_init          6811.o
+    0x000016f2   0x000016f2   0x00000002   PAD
+    0x000016f4   0x000016f4   0x000000a0   Code   RO          318    i.CellVolt_Max_Min  6811.o
+    0x00001794   0x00001794   0x00000078   Code   RO          649    i.Current_get       bat.o
+    0x0000180c   0x0000180c   0x00000034   Code   RO          650    i.DSG_MOS           bat.o
+    0x00001840   0x00001840   0x000000a4   Code   RO          651    i.EE_Date_Read      bat.o
+    0x000018e4   0x000018e4   0x00000108   Code   RO          652    i.EE_Date_Read_Check  bat.o
+    0x000019ec   0x000019ec   0x00000080   Code   RO          653    i.EE_Date_Save      bat.o
+    0x00001a6c   0x00001a6c   0x0000004c   Code   RO          655    i.From_Temp_Get_RTCap  bat.o
+    0x00001ab8   0x00001ab8   0x00000018   Code   RO         1201    i.GPIO_PinRead      gpio_lpc17xx.o
+    0x00001ad0   0x00001ad0   0x00000018   Code   RO         1202    i.GPIO_PinWrite     gpio_lpc17xx.o
+    0x00001ae8   0x00001ae8   0x0000001c   Code   RO         1203    i.GPIO_PortClock    gpio_lpc17xx.o
+    0x00001b04   0x00001b04   0x00000020   Code   RO         1206    i.GPIO_SetDir       gpio_lpc17xx.o
+    0x00001b24   0x00001b24   0x00000034   Code   RO          658    i.Heat_MOS          bat.o
+    0x00001b58   0x00001b58   0x000000e0   Code   RO          509    i.I2C0_IRQHandler   i2c.o
+    0x00001c38   0x00001c38   0x0000010a   Code   RO          822    i.IO_Init           io.o
+    0x00001d42   0x00001d42   0x00000002   PAD
+    0x00001d44   0x00001d44   0x0000003c   Code   RO          823    i.KEYSCAN           io.o
+    0x00001d80   0x00001d80   0x00000140   Code   RO          824    i.LED               io.o
+    0x00001ec0   0x00001ec0   0x000000c0   Code   RO          825    i.LED_light         io.o
+    0x00001f80   0x00001f80   0x00000070   Code   RO          319    i.LT68_NTC_Table_Lookup  6811.o
+    0x00001ff0   0x00001ff0   0x00000120   Code   RO          320    i.LTC6811_CMD_init  6811.o
+    0x00002110   0x00002110   0x00000f90   Code   RO          321    i.LTC6811_Mission   6811.o
+    0x000030a0   0x000030a0   0x0000008c   Code   RO          322    i.LTC6811_MoveData  6811.o
+    0x0000312c   0x0000312c   0x00000048   Code   RO          323    i.LTC6811_Readcmd   6811.o
+    0x00003174   0x00003174   0x00000024   Code   RO          324    i.LTC6811_Sendcmd   6811.o
+    0x00003198   0x00003198   0x000008e0   Code   RO          325    i.LTC6811_UartSend  6811.o
+    0x00003a78   0x00003a78   0x00000030   Code   RO          326    i.LTC6811_WeekIdle  6811.o
+    0x00003aa8   0x00003aa8   0x00000024   Code   RO          327    i.LTC6811_Writecmd  6811.o
+    0x00003acc   0x00003acc   0x00000068   Code   RO         1255    i.PIN_Configure     pin_lpc17xx.o
+    0x00003b34   0x00003b34   0x0000001c   Code   RO         1256    i.PIN_ConfigureI2C0Pins  pin_lpc17xx.o
+    0x00003b50   0x00003b50   0x000000c4   Code   RO          660    i.Protection_deal   bat.o
+    0x00003c14   0x00003c14   0x00000038   Code   RO         1112    i.RTCGetTime        rtc.o
+    0x00003c4c   0x00003c4c   0x0000003c   Code   RO         1113    i.RTCInit           rtc.o
+    0x00003c88   0x00003c88   0x00000014   Code   RO         1117    i.RTCStart          rtc.o
+    0x00003c9c   0x00003c9c   0x0000001c   Code   RO         1120    i.RTC_IRQHandler    rtc.o
+    0x00003cb8   0x00003cb8   0x00000128   Code   RO         1121    i.RTC_Send          rtc.o
+    0x00003de0   0x00003de0   0x00000078   Code   RO          661    i.Remain_CAP_Percent_get  bat.o
+    0x00003e58   0x00003e58   0x0000000a   Code   RO          826    i.SHUTDOWN          io.o
+    0x00003e62   0x00003e62   0x00000002   PAD
+    0x00003e64   0x00003e64   0x00000034   Code   RO          262    i.SPI_6811_PutArray  spi.o
+    0x00003e98   0x00003e98   0x0000004c   Code   RO          264    i.SPI_IRQHandler    spi.o
+    0x00003ee4   0x00003ee4   0x0000007c   Code   RO          265    i.SPI_init          spi.o
+    0x00003f60   0x00003f60   0x0000006c   Code   RO          997    i.SSP1_PutArray     ssp1.o
+    0x00003fcc   0x00003fcc   0x00000070   Code   RO          999    i.SSP1_init         ssp1.o
+    0x0000403c   0x0000403c   0x000000a4   Code   RO            7    i.SysTick_Handler   main.o
+    0x000040e0   0x000040e0   0x000000cc   Code   RO         1302    i.SystemInit        system_lpc17xx.o
+    0x000041ac   0x000041ac   0x00000068   Code   RO          150    i.UART1_IRQHandler  uart.o
+    0x00004214   0x00004214   0x00000068   Code   RO          151    i.UART2_IRQHandler  uart.o
+    0x0000427c   0x0000427c   0x00000068   Code   RO          152    i.UART3_IRQHandler  uart.o
+    0x000042e4   0x000042e4   0x0000001a   Code   RO          153    i.__NVIC_EnableIRQ  uart.o
+    0x000042fe   0x000042fe   0x0000001a   Code   RO          876    i.__NVIC_EnableIRQ  timer.o
+    0x00004318   0x00004318   0x000000a4   Code   RO          437    i.ad_init           ad.o
+    0x000043bc   0x000043bc   0x00000018   Code   RO          440    i.ad_start          ad.o
+    0x000043d4   0x000043d4   0x00000078   Code   RO          510    i.i2c0_init         i2c.o
+    0x0000444c   0x0000444c   0x0000003c   Code   RO          511    i.i2c0_start        i2c.o
+    0x00004488   0x00004488   0x0000003c   Code   RO          328    i.init_PEC15_Table  6811.o
+    0x000044c4   0x000044c4   0x0000051c   Code   RO            8    i.main              main.o
+    0x000049e0   0x000049e0   0x00000034   Code   RO          329    i.pec15             6811.o
+    0x00004a14   0x00004a14   0x00000038   Code   RO          882    i.timer3_init       timer.o
+    0x00004a4c   0x00004a4c   0x0000007c   Code   RO          154    i.uart1_init        uart.o
+    0x00004ac8   0x00004ac8   0x0000002c   Code   RO          156    i.uart1_send        uart.o
+    0x00004af4   0x00004af4   0x0000006c   Code   RO          157    i.uart2_init        uart.o
+    0x00004b60   0x00004b60   0x0000006c   Code   RO          160    i.uart3_init        uart.o
+    0x00004bcc   0x00004bcc   0x0000001c   Code   RO          162    i.uart3_send        uart.o
+    0x00004be8   0x00004be8   0x00000044   Data   RO          564    .constdata          can.o
+    0x00004c2c   0x00004c2c   0x00000040   Data   RO         1507    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x10000000, Load base: 0x00004c94, Size: 0x000011b8, Max: 0x00008000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x10000000, Load base: 0x00004c6c, Size: 0x000011b8, Max: 0x00008000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x10000000   0x00004c94   0x0000002e   Data   RW           12    .data               main.o
-    0x1000002e   0x00004cc2   0x00000002   PAD
-    0x10000030   0x00004cc4   0x00000030   Data   RW          169    .data               uart.o
-    0x10000060   0x00004cf4   0x0000000c   Data   RW          267    .data               spi.o
-    0x1000006c   0x00004d00   0x00000004   Data   RW          665    .data               bat.o
-    0x10000070   0x00004d04   0x00000004   Data   RW          671    .data               bat.o
-    0x10000074   0x00004d08   0x00000004   Data   RW          673    .data               bat.o
-    0x10000078   0x00004d0c   0x00000004   Data   RW          675    .data               bat.o
-    0x1000007c   0x00004d10   0x00000004   Data   RW          677    .data               bat.o
-    0x10000080   0x00004d14   0x0000000c   Data   RW         1001    .data               ssp1.o
-    0x1000008c   0x00004d20   0x00000010   Data   RW         1053    .data               ad7124.o
+    0x10000000   0x00004c6c   0x0000002e   Data   RW           12    .data               main.o
+    0x1000002e   0x00004c9a   0x00000002   PAD
+    0x10000030   0x00004c9c   0x00000030   Data   RW          169    .data               uart.o
+    0x10000060   0x00004ccc   0x0000000c   Data   RW          267    .data               spi.o
+    0x1000006c   0x00004cd8   0x00000004   Data   RW          665    .data               bat.o
+    0x10000070   0x00004cdc   0x00000004   Data   RW          671    .data               bat.o
+    0x10000074   0x00004ce0   0x00000004   Data   RW          673    .data               bat.o
+    0x10000078   0x00004ce4   0x00000004   Data   RW          675    .data               bat.o
+    0x1000007c   0x00004ce8   0x00000004   Data   RW          677    .data               bat.o
+    0x10000080   0x00004cec   0x0000000c   Data   RW         1001    .data               ssp1.o
+    0x1000008c   0x00004cf8   0x00000010   Data   RW         1053    .data               ad7124.o
     0x1000009c        -       0x00001058   Zero   RW          330    .bss                6811.o
     0x100010f4        -       0x00000064   Zero   RW         1000    .bss                ssp1.o
     0x10001158        -       0x00000060   Zero   RW         1381    .bss                c_w.l(libspace.o)
     0x100011b8        -       0x00000000   Zero   RW         1289    HEAP                startup_lpc17xx.o
 
 
-    Execution Region RW_IRAM2 (Exec base: 0x2007c000, Load base: 0x00004d30, Size: 0x000011b8, Max: 0x00008000, ABSOLUTE, COMPRESSED[0x0000027c])
+    Execution Region RW_IRAM2 (Exec base: 0x2007c000, Load base: 0x00004d08, Size: 0x000011b8, Max: 0x00008000, ABSOLUTE, COMPRESSED[0x0000027c])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1441,15 +1440,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      7418        134          0        756       4184      24842   6811.o
+      7402        138          0        756       4184      24526   6811.o
        188         18          0          0          0        801   ad.o
-       924         56          0         16       1600       5758   ad7124.o
+       932         58          0         16       1600       5674   ad7124.o
       4810        138          0        418        500      14004   bat.o
        412         82         68         48         64      31548   can.o
        108         18          0          0          0       2262   gpio_lpc17xx.o
        404         40          0         12          0       2391   i2c.o
-       844         26          0          8          0       2694   io.o
-      1510        220          0         46         32      53007   main.o
+       848         24          0          8          0       2702   io.o
+      1474        208          0         46         32      52991   main.o
        132         10          0          0          0       1516   pin_lpc17xx.o
        460         34          0          4        100       2842   rtc.o
        252         32          0         12        500       2173   spi.o
@@ -1460,7 +1459,7 @@ Image component sizes
        750         78          0         48          0      32858   uart.o
 
     ----------------------------------------------------------------------
-     18796        954        336       1384       7592     180753   Object Totals
+     18756        946        336       1384       7592     180345   Object Totals
          0          0         64          0          0          0   (incl. Generated)
         14          0          0          4          0          0   (incl. Padding)
 
@@ -1511,15 +1510,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     19268        970        336       1384       7688     177165   Grand Totals
-     19268        970        336        792       7688     177165   ELF Image Totals (compressed)
-     19268        970        336        792          0          0   ROM Totals
+     19228        962        336       1384       7688     176757   Grand Totals
+     19228        962        336        792       7688     176757   ELF Image Totals (compressed)
+     19228        962        336        792          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                19604 (  19.14kB)
+    Total RO  Size (Code + RO Data)                19564 (  19.11kB)
     Total RW  Size (RW Data + ZI Data)              9072 (   8.86kB)
-    Total ROM Size (Code + RO Data + RW Data)      20396 (  19.92kB)
+    Total ROM Size (Code + RO Data + RW Data)      20356 (  19.88kB)
 
 ==============================================================================
 

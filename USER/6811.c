@@ -1355,6 +1355,7 @@ void LTC6811_Mission(void){
 				break;   
 		}        
 	}
+	LTC6811_Mission_StepCounter ++;
 }
 
 /*

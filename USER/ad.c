@@ -137,6 +137,7 @@ void ad(void){
 			ad_step = 0;
 			break;	
 	}
+	ad_step++;
 }
 void ad_UartSend(void){
 	uint8_t i,j;

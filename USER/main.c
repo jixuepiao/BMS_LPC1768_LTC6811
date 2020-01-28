@@ -241,16 +241,12 @@ int main(void){
 			if(RUN_Status == 0xFF) k++;
 			
 			AD7124_mission();
-			AD7124_COUNT ++;
 			
 //			//单片机AD测温 未使用
 //			if(Measure_Num > 20){
 //				ad();
-//				ad_step++;
 //			}
-			
 			LTC6811_Mission();	
-			LTC6811_Mission_StepCounter ++;
 
 			switch(RUN_Status){
 				case 0x00:		//判断为初始化中	
@@ -363,13 +359,9 @@ int main(void){
 						BAT();
 						BAT_Protect_Status_get_slow();
 						Protection_deal();
-//						Heat();
-						
-						LED();
-						LED_Timer++;
-						
+//						Heat();						
+						LED();						
 //						BAT_CANSend();
-//						CANSend_Timer ++;
 					}				
 					
 					//秒判断
@@ -382,12 +374,10 @@ int main(void){
 //							if(CHGStop_Timer > CHG_Stop_Timer_Threshold)	BAT_Work_Status |= CHG_Complete_bit;
 //						}else CHGStop_Timer = 0;					
 						
-						
 						//OT保护和恢复计时
 						if((BAT_Protect_Alarm&OT_bit)>0) 	OT_Timer++;		
 						//UT保护和恢复计时
 						if((BAT_Protect_Alarm&UT_bit)>0) 	UT_Timer++;	
-						
 						
 //						if((BAT_Protect_Status&COC_bit)>0){	//延时30s自恢复
 //							COC_Delay_Timer++;

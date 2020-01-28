@@ -232,6 +232,7 @@ void AD7124_mission(void){
 			AD7124_COUNT = 999;
 			break;
 	}
+	AD7124_COUNT ++;
 }
 
 

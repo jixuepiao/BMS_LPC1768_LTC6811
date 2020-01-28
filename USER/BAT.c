@@ -1479,6 +1479,7 @@ void BAT_CANSend(void){
 			CANSend_Timer = 0;
 			break;
 	}
+	CANSend_Timer ++;
 }
 */
 
