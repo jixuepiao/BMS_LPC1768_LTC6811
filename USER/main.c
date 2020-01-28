@@ -31,7 +31,7 @@ uint32_t SYSTimer_ms_Counter = 0;
 uint32_t SYSTimer_s_Counter = 0;
 uint32_t SYSRun_Seconds = 0;
 
-uint8_t i=0,j=0,k=0;
+uint16_t i=0,j=0,k=0;
 
 uint8_t buff[30] = {'E','E','P','R','O','M',' ','O','K','\n','\r'};
 RTCTime local_time, alarm_time, current_time;
@@ -281,17 +281,17 @@ int main(void){
 							break;
 						case 1800:
 //							From_CellVolt_Get_RemCapPer();//根据单体电压判断剩余容量 关闭该功能
-								
-								DSG_CAP_Lifetime_mAh = EE_DSG_CAP_Lifetime_mAh;
-								CHG_CAP_Lifetime_mAh = EE_CHG_CAP_Lifetime_mAh;
-								Rem_CAP_mAh = EE_Rem_CAP_mAh;
-//								Rem_CAP_mAh = 18700;
-								Remain_CAP_Percent = EE_Remain_CAP_Percent;
-								Full_CAP = EE_Full_CAP;
-								DSG_CAP_Lifetime_mAh = EE_DSG_CAP_Lifetime_mAh;
-								CHG_CAP_Lifetime_mAh = EE_CHG_CAP_Lifetime_mAh;
-								Cycle_Times = EE_Cycle_Times;						
-								
+														
+							DSG_CAP_Lifetime_mAh = EE_DSG_CAP_Lifetime_mAh;
+							CHG_CAP_Lifetime_mAh = EE_CHG_CAP_Lifetime_mAh;
+							Rem_CAP_mAh = EE_Rem_CAP_mAh;
+							Remain_CAP_Percent = EE_Remain_CAP_Percent;
+							Full_CAP = EE_Full_CAP;
+							DSG_CAP_Lifetime_mAh = EE_DSG_CAP_Lifetime_mAh;
+							CHG_CAP_Lifetime_mAh = EE_CHG_CAP_Lifetime_mAh;
+							Cycle_Times = EE_Cycle_Times;						
+//							Rem_CAP_mAh = 18700;	//当EEPROM中剩余容量值不正确时，用于手动调整容量值。打开改行，调整值后下载，屏蔽改行再下载一次。
+						
 							//读取的电量百分比大于根据电压判断的，且超过5%差值，则判断为电池放置时间很久由于自放电等原因容量产生偏差，
 //							if(
 //									((EE_Remain_CAP_Percent > _Remain_CAP_Percent) && ((EE_Remain_CAP_Percent - _Remain_CAP_Percent) > 20)) ||
@@ -309,23 +309,6 @@ int main(void){
 //								CHG_CAP_Lifetime_mAh = EE_CHG_CAP_Lifetime_mAh;
 //								Cycle_Times = EE_Cycle_Times;
 //								BAT_Protect_Status &= ~MTA_bit;			//清维护告警
-//								
-//								buff[0] = 'R';
-//								buff[1] = 'C';
-//								buff[2] = ' ';
-//								buff[3] = 'm';
-//								buff[4] = 'A';
-//								buff[5] = 'h';
-//								buff[6] = ' ';	
-//								buff[7] = 0x30+Rem_CAP_mAh/100000;
-//								buff[8] = 0x30+(Rem_CAP_mAh%100000)/10000;
-//								buff[9] = 0x30+(Rem_CAP_mAh%10000)/1000;
-//								buff[10] = 0x30+(Rem_CAP_mAh%1000)/100;
-//								buff[11] = 0x30+(Rem_CAP_mAh%100)/10;
-//								buff[12] = 0x30+(Rem_CAP_mAh%10)/1;
-//								buff[13] = '\r';
-//								buff[14] = '\n';					
-//								uart3_send(buff,15);
 //							}
 
 							if(Remain_CAP_Percent == 0) BAT_Work_Status |= FCCF_bit;	//置满容量校准标志
@@ -351,7 +334,7 @@ int main(void){
 					//PkUV保护和恢复计时
 					if((BAT_Protect_Alarm&PkUV_bit)>0) 	PkUV_Timer++;
 
-					if(CH_Volt[0] == 0) RUN_Status = 0x10;
+					if(CH_Volt[0] == 0) RUN_Status = 0x10;	//检测到AD芯片通道0（电流检测通道）的电压为0时（通常在Current_offset附近），认为AD芯片工作异常，自动关机
 				
 					if(Measure_Num > 52){
 //						NVIC_EnableIRQ(EINT3_IRQn);
@@ -361,7 +344,7 @@ int main(void){
 						Protection_deal();
 //						Heat();						
 						LED();						
-//						BAT_CANSend();
+//						BAT_CANSend();	//电池组数据CAN发送函数
 					}				
 					
 					//秒判断
@@ -421,6 +404,13 @@ int main(void){
 //								BAT_Protect_Status &= ~PkUV_bit;
 //							}							
 //						}						
+						
+						current_time = RTCGetTime();
+						if(	(current_time.RTC_Year > 2020)	||
+								(current_time.RTC_Yday > MTA_Alarm_days)
+						){
+							BAT_Protect_Status |= MTA_bit;			//置维护告警
+						}
 						
 						//2min存储一下EEPROM
 						if((SYSTimer_s_Counter>10) && ((SYSTimer_s_Counter%120) == 0)){	
@@ -495,8 +485,19 @@ int main(void){
 							break;
 						case 200:
 							if(EE_Date_Read_Check() == 0) k = 0;
-							break;				
-						case 210:
+							break;
+						case 210://以2020年1月1日0时0分0秒作为基准时间，在关机器件RTC计时，在开机时读取RTC时间与基准时间比较，超过
+							local_time.RTC_Sec = 0;
+							local_time.RTC_Min = 0;
+							local_time.RTC_Hour = 0;
+							local_time.RTC_Mday = 1;
+							local_time.RTC_Wday = 3;
+							local_time.RTC_Yday = 1;
+							local_time.RTC_Mon = 1;
+							local_time.RTC_Year = 2020;
+							RTCSetTime( local_time );		/* Set local time */	
+							RTCStart();
+						case 250:
 							SHUTDOWN();
 							while(1)
 							break;						

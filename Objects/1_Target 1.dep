@@ -1,5 +1,5 @@
 Dependencies for Project '1', Target 'Target 1': (DO NOT MODIFY !)
-F (.\USER\main.c)(0x5E2FD481)(--c99 --gnu -c --cpu Cortex-M3 -g -O2 --apcs=interwork --split_sections -I .\USER-I.\RTE\Device\LPC1768-I.\RTE\_Target_1-IF:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IF:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include-IF:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver-D__UVISION_VERSION="526" -D_RTE_ -DLPC175x_6x-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\USER\main.c)(0x5E2FDB35)(--c99 --gnu -c --cpu Cortex-M3 -g -O2 --apcs=interwork --split_sections -I .\USER-I.\RTE\Device\LPC1768-I.\RTE\_Target_1-IF:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IF:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include-IF:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver-D__UVISION_VERSION="526" -D_RTE_ -DLPC175x_6x-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (F:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include\LPC17xx.h)(0x5848DD22)
 I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h)(0x5B617084)
 I (F:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
@@ -14,7 +14,7 @@ I (F:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver\GPIO_LPC17xx.h)(0x55824
 I (USER\uart.h)(0x5D4C1724)
 I (USER\spi.h)(0x5D67C15A)
 I (USER\6811.h)(0x5DF870CB)
-I (USER\BATConfig.h)(0x5DE5FDBD)
+I (USER\BATConfig.h)(0x5E2FD81E)
 I (USER\ssp0.h)(0x5D53C1AC)
 I (USER\AD.h)(0x5D7B3D9F)
 I (USER\I2C.h)(0x5D3AC7F7)
@@ -53,7 +53,7 @@ I (F:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
 I (F:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver\GPIO_LPC17xx.h)(0x5582459A)
 F (.\USER\6811.c)(0x5E2FD2EA)(--c99 --gnu -c --cpu Cortex-M3 -g -O2 --apcs=interwork --split_sections -I .\USER-I.\RTE\Device\LPC1768-I.\RTE\_Target_1-IF:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IF:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include-IF:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver-D__UVISION_VERSION="526" -D_RTE_ -DLPC175x_6x-o .\objects\6811.o --omf_browse .\objects\6811.crf --depend .\objects\6811.d)
 I (USER\6811.h)(0x5DF870CB)
-I (USER\BATConfig.h)(0x5DE5FDBD)
+I (USER\BATConfig.h)(0x5E2FD81E)
 I (F:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include\LPC17xx.h)(0x5848DD22)
 I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h)(0x5B617084)
 I (F:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
@@ -83,7 +83,7 @@ I (F:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
 I (F:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver\GPIO_LPC17xx.h)(0x5582459A)
 I (USER\uart.h)(0x5D4C1724)
 I (USER\6811.h)(0x5DF870CB)
-I (USER\BATConfig.h)(0x5DE5FDBD)
+I (USER\BATConfig.h)(0x5E2FD81E)
 I (USER\spi.h)(0x5D67C15A)
 I (USER\ssp0.h)(0x5D53C1AC)
 F (.\USER\I2C.c)(0x5D3AC8AA)(--c99 --gnu -c --cpu Cortex-M3 -g -O2 --apcs=interwork --split_sections -I .\USER-I.\RTE\Device\LPC1768-I.\RTE\_Target_1-IF:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IF:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include-IF:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver-D__UVISION_VERSION="526" -D_RTE_ -DLPC175x_6x-o .\objects\i2c.o --omf_browse .\objects\i2c.crf --depend .\objects\i2c.d)
@@ -126,7 +126,7 @@ I (F:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver\PIN_LPC17xx.h)(0x558245
 I (F:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
 I (F:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver\GPIO_LPC17xx.h)(0x5582459A)
 I (USER\6811.h)(0x5DF870CB)
-I (USER\BATConfig.h)(0x5DE5FDBD)
+I (USER\BATConfig.h)(0x5E2FD81E)
 I (USER\spi.h)(0x5D67C15A)
 I (USER\ssp0.h)(0x5D53C1AC)
 I (USER\I2C.h)(0x5D3AC7F7)
@@ -151,7 +151,7 @@ I (F:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver\GPIO_LPC17xx.h)(0x55824
 I (USER\BAT.h)(0x5DF70330)
 I (USER\uart.h)(0x5D4C1724)
 I (USER\6811.h)(0x5DF870CB)
-I (USER\BATConfig.h)(0x5DE5FDBD)
+I (USER\BATConfig.h)(0x5E2FD81E)
 I (USER\spi.h)(0x5D67C15A)
 I (USER\ssp0.h)(0x5D53C1AC)
 I (USER\I2C.h)(0x5D3AC7F7)

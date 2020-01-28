@@ -65,6 +65,7 @@
 
 #define DFC 											20000		//design full capacity (mAh)
 #define MAX_DFC 									21000		//design full capacity (mAh)
+#define MTA_Alarm_days						180			//维护告警天数，从上次关机到这次开机间隔时间大于该天数置维护告警位，关机清零
 
 #define Full_CAP_Cali_Current_Threshold 3000	//(mA)满容量校准充电电流阈值，在满容量校准标志置位时，充电电流降低到该值时，满容量开始等于剩余容量直至超压保护充电停止
 
