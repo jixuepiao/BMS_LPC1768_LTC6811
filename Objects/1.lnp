@@ -12,6 +12,7 @@
 ".\objects\ssp0.o"
 ".\objects\ssp1.o"
 ".\objects\ad7124.o"
+".\objects\rtc.o"
 ".\objects\gpio_lpc17xx.o"
 ".\objects\pin_lpc17xx.o"
 ".\objects\startup_lpc17xx.o"

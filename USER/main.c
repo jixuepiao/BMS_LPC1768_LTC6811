@@ -13,6 +13,7 @@
 #include "ssp0.h"
 #include "ssp1.h"
 #include "AD7124.h"
+#include "rtc.h"
 
 #define LED1_DIR_OUTPUT GPIO_SetDir(1,22,GPIO_DIR_OUTPUT)
 #define LED2_DIR_OUTPUT GPIO_SetDir(1,23,GPIO_DIR_OUTPUT)
@@ -33,7 +34,7 @@ uint32_t SYSRun_Seconds = 0;
 uint8_t i=0,j=0,k=0;
 
 uint8_t buff[30] = {'E','E','P','R','O','M',' ','O','K','\n','\r'};
-
+RTCTime local_time, alarm_time, current_time;
 
 //外部中断I/O初始化
 void EINT_GPIO_Init(void){
@@ -199,6 +200,18 @@ int main(void){
 	ad_start();
 //	EINT_GPIO_Init();
 
+	RTCInit();
+//  local_time.RTC_Sec = 0;
+//  local_time.RTC_Min = 30;
+//  local_time.RTC_Hour = 15;
+//  local_time.RTC_Mday = 26;
+//  local_time.RTC_Wday = 0;
+//  local_time.RTC_Yday = 26;		/* current date 05/12/2010 */
+//  local_time.RTC_Mon = 1;
+//  local_time.RTC_Year = 2020;
+//  RTCSetTime( local_time );		/* Set local time */	
+	RTCStart();
+	
 	CAN_setup(CAN1);
 	CAN_setup(CAN2);	
 //	CAN_SetACCF_Lookup();
@@ -460,6 +473,10 @@ int main(void){
 //									EE_DATE_Receive[2] = 0x01;
 //									EE_DATE_Receive[3] = 0xA1;
 //									i2c0_start(EE_DATE_Receive,30);
+									break;
+								case 7:
+									current_time = RTCGetTime();
+									RTC_Send(current_time);
 									break;
 								case 10:
 //									CAN_test(CAN2);						

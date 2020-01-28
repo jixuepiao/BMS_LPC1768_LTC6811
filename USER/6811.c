@@ -78,7 +78,7 @@ uint16_t pec15Table[256];
 uint16_t CRC15_POLY = 0x4599;
 
 uint16_t LTC6811_Mission_StepCounter = 0; //LTC6811的任务计时，0.5ms增加一次
-uint8_t LTC6811_Init_Status = 0x01;          //芯片初始化检测状态 0x80：未通过    0x01：通过     0x00:自检中
+uint8_t LTC6811_Init_Status = 0x00;          //芯片初始化检测状态 0x80：未通过    0x01：通过     0x00:自检中
 uint8_t repeat = 0;                       //步骤重复次数
 uint16_t pecdata;
 uint32_t Measure_Num = 0;									//测量次数，自检完成后(LTC6811_Init_Status == 0x01)时，每完成一次测量加1
@@ -1042,8 +1042,8 @@ void LTC6811_Mission(void){
 		LED1_SET_0;
 	}else if(LTC6811_Init_Status == 0x01){	//判断为自检通过
 		LED1_SET_1;
-		DEVICE[0].Cell_Select = 0x01CF;
-		DEVICE[1].Cell_Select = 0x03CF;
+//		DEVICE[0].Cell_Select = 0x01CF;
+//		DEVICE[1].Cell_Select = 0x03CF;
 			
 		switch(LTC6811_Mission_StepCounter){
 			case 1:
@@ -1094,14 +1094,14 @@ void LTC6811_Mission(void){
 					for(j=0;j<12;j++){
 						if((DEVICE[i].Cell_Select&(0x0001<<j))>0){
 							if((DEVICE[i].CellVolt_AS[j]>BatteryVolt_MIN)&&(DEVICE[i].CellVolt_AS[j]<BatteryVolt_MAX)){
-								DEVICE[i].CellVolt[j] = DEVICE[i].CellVolt_AS[j];
-//								DEVICE[i].CellVolt_CUM[j][CUM_Num] = DEVICE[i].CellVolt_AS[j];	//数据存到累加数组
+//								DEVICE[i].CellVolt[j] = DEVICE[i].CellVolt_AS[j];
+								DEVICE[i].CellVolt_CUM[j][CUM_Num] = DEVICE[i].CellVolt_AS[j];	//数据存到累加数组
 							}
 						}
 					}
 				}
 				
-				CellVolt_Max_Min();	//找出最大值和最小值
+//				CellVolt_Max_Min();	//找出最大值和最小值
 				
 				//均衡开启判断条件	最小值大于LTC6811_BalanceStartVolt(0.1mV) 或最大值大于(LTC6811_BalanceStartVolt+1000)(0.1mV) 
 				if((DEVICE[0].CellVolt_Min>LTC6811_BalanceStartVolt) || (DEVICE[0].CellVolt_Max>(LTC6811_BalanceStartVolt+1000))){	
@@ -1116,9 +1116,7 @@ void LTC6811_Mission(void){
 					for(i=0;i<LTC6811_DeviceNUM;i++){
 						DEVICE[i].DEC_Flag &= 0xF000;
 					}										
-				}				
-				
-
+				}
 				break;
 			case 22:       
 				//奇数串和偶数串分开 每隔1s切换均衡
@@ -1263,19 +1261,19 @@ void LTC6811_Mission(void){
 				}
 				
 				if(Measure_Num > 22){	//测量次数大于22次后累加数组内数据填充满 计算累加平均值
-//					for(i=0;i<LTC6811_DeviceNUM;i++){	//取电压的累加平均值赋值给有效值
-//						for(j=0;j<12;j++){
-//							for(k=0;k<12;k++){
-//								CUM_BUFF[k] = 0;
-//							}
-//							for(k=0;k<10;k++){
-//								CUM_BUFF[j] += DEVICE[i].CellVolt_CUM[j][k];
-//							}
-//							DEVICE[i].CellVolt[j] = CUM_BUFF[j]/10;
-//						}
-//					}
-//					
-//					CellVolt_Max_Min();	//找出最大值和最小值
+					for(i=0;i<LTC6811_DeviceNUM;i++){	//取电压的累加平均值赋值给有效值
+						for(j=0;j<12;j++){
+							for(k=0;k<12;k++){
+								CUM_BUFF[k] = 0;
+							}
+							for(k=0;k<10;k++){
+								CUM_BUFF[j] += DEVICE[i].CellVolt_CUM[j][k];
+							}
+							DEVICE[i].CellVolt[j] = CUM_BUFF[j]/10;
+						}
+					}
+					
+					CellVolt_Max_Min();	//找出最大值和最小值
 					
 					for(i=0;i<LTC6811_DeviceNUM;i++){	//取GPIO的累加平均值赋值给有效值
 						for(j=0;j<5;j++){
@@ -1291,8 +1289,8 @@ void LTC6811_Mission(void){
 
 					for(i=0;i<LTC6811_DeviceNUM;i++){
 						for(j=0;j<5;j++){
-	//						DEVICE[i].GPIO_NTCReg[j] =	(10000*DEVICE[i].GPIOVolt[j])/(DEVICE[i].REFVolt - DEVICE[i].GPIOVolt[j]);	
-							DEVICE[i].GPIO_NTCReg[j] =	(10000*DEVICE[i].GPIOVolt[j])/(30000 - DEVICE[i].GPIOVolt[j]);							
+							DEVICE[i].GPIO_NTCReg[j] =	(10000*DEVICE[i].GPIOVolt[j])/(DEVICE[i].REFVolt - DEVICE[i].GPIOVolt[j]);	
+//							DEVICE[i].GPIO_NTCReg[j] =	(10000*DEVICE[i].GPIOVolt[j])/(30000 - DEVICE[i].GPIOVolt[j]);							
 						}
 					}
 				
@@ -1324,25 +1322,24 @@ void LTC6811_Mission(void){
 						}
 					}
 
-	//大连48V电池只是用DEVICE[0]的GPIO_NTC_TEMP[0]和[4]
-					if(DEVICE[0].GPIO_NTC_TEMP[0] >= DEVICE[0].GPIO_NTC_TEMP[4]){
-						MAX = DEVICE[0].GPIO_NTC_TEMP[0];
-						MAX_NUM = 0;
-						MIN = DEVICE[0].GPIO_NTC_TEMP[4];
-						MIN_NUM = 4;
-					}else{
-						MAX = DEVICE[0].GPIO_NTC_TEMP[4];
-						MAX_NUM = 4;
-						MIN = DEVICE[0].GPIO_NTC_TEMP[0];	
-						MIN_NUM = 0;
-					}
-					
-	//				MAX = 120;
-	//				MAX_NUM = 0;
-	//				MIN = 115;
-	//				MIN_NUM = 4;
-
-	//大连48V电池只是用DEVICE[0]的GPIO_NTC_TEMP[0]和[4]
+//	//大连48V电池只是用DEVICE[0]的GPIO_NTC_TEMP[0]和[4]
+//					if(DEVICE[0].GPIO_NTC_TEMP[0] >= DEVICE[0].GPIO_NTC_TEMP[4]){
+//						MAX = DEVICE[0].GPIO_NTC_TEMP[0];
+//						MAX_NUM = 0;
+//						MIN = DEVICE[0].GPIO_NTC_TEMP[4];
+//						MIN_NUM = 4;
+//					}else{
+//						MAX = DEVICE[0].GPIO_NTC_TEMP[4];
+//						MAX_NUM = 4;
+//						MIN = DEVICE[0].GPIO_NTC_TEMP[0];	
+//						MIN_NUM = 0;
+//					}
+//					
+//	//				MAX = 120;
+//	//				MAX_NUM = 0;
+//	//				MIN = 115;
+//	//				MIN_NUM = 4;
+//	//大连48V电池只是用DEVICE[0]的GPIO_NTC_TEMP[0]和[4]
 					
 					for(i=0;i<LTC6811_DeviceNUM;i++){
 						DEVICE[i].LT68_NTC_Temp_MAX = MAX;

@@ -154,14 +154,14 @@
           <Type>0</Type>
           <LineNumber>683</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>9264</Address>
+          <Address>9244</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>D:\椤圭洰\澶ц繛 48V鐢垫睜\PROG\LPC1768 20191209\USER\6811.c</Filename>
+          <Filename>.\USER\6811.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\1\USER/6811.c\683</Expression>
         </Bp>
@@ -177,7 +177,7 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>D:\椤圭洰\澶ц繛 48V鐢垫睜\PROG\LPC1768 20191209\USER\BAT.c</Filename>
+          <Filename>.\USER\BAT.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\1\USER/BAT.c\565</Expression>
         </Bp>
@@ -196,7 +196,7 @@
         <Ww>
           <count>2</count>
           <WinNumber>1</WinNumber>
-          <ItemText>DEVICE,0x0A</ItemText>
+          <ItemText>DEVICE,0x10</ItemText>
         </Ww>
         <Ww>
           <count>3</count>
@@ -435,6 +435,18 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\USER\AD7124.c</PathWithFileName>
       <FilenameWithoutPath>AD7124.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>1</GroupNumber>
+      <FileNumber>14</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>1</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\USER\rtc.c</PathWithFileName>
+      <FilenameWithoutPath>rtc.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

@@ -25,3 +25,4 @@
 .\objects\main.o: USER\AD7124.h
 .\objects\main.o: USER\ssp1.h
 .\objects\main.o: USER\Timer.h
+.\objects\main.o: USER\rtc.h
