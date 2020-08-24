@@ -222,6 +222,12 @@ void RTC_Send(RTCTime data){
 	rtc_buff[i+1] = '0'+(data.RTC_Mday%10)/1;	
 	rtc_buff[i+2] = ' ';
 	i += 3;
+	rtc_buff[i] = '0'+data.RTC_Yday/1000;
+	rtc_buff[i+1] = '0'+(data.RTC_Yday%1000)/100;	
+	rtc_buff[i+2] = '0'+(data.RTC_Yday%100)/10;	
+	rtc_buff[i+3] = '0'+(data.RTC_Yday%10)/1;
+	rtc_buff[i+4] = ' ';	
+	i += 5;	
 	rtc_buff[i] = '0'+data.RTC_Wday/10;	
 	rtc_buff[i+1] = ' ';	
 	i += 2;

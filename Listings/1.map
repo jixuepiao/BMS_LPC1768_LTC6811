@@ -51,10 +51,6 @@ Section Cross References
     main.o(i.main) refers to bat.o(i.BAT_UartSend) for BAT_UartSend
     main.o(i.main) refers to ad7124.o(i.AD7124_UartSend) for AD7124_UartSend
     main.o(i.main) refers to rtc.o(i.RTC_Send) for RTC_Send
-    main.o(i.main) refers to bat.o(i.DSG_MOS) for DSG_MOS
-    main.o(i.main) refers to bat.o(i.EE_Date_Read_Check) for EE_Date_Read_Check
-    main.o(i.main) refers to rtc.o(i.RTCSetTime) for RTCSetTime
-    main.o(i.main) refers to io.o(i.SHUTDOWN) for SHUTDOWN
     main.o(i.main) refers to bat.o(.data) for BAT_Protect_Alarm
     main.o(i.main) refers to bat.o(.data) for EE_DATE_Receive
     main.o(i.main) refers to main.o(.data) for .data
@@ -69,7 +65,17 @@ Section Cross References
     main.o(i.main) refers to bat.o(.data) for EE_DATE_Receive_Check
     main.o(i.main) refers to bat.o(.data) for OT_Timer
     main.o(i.main) refers to bat.o(.data) for UT_Timer
+    main.o(i.main) refers to bat.o(.data) for COC_Delay_Timer
+    main.o(i.main) refers to bat.o(.data) for DOC_Delay_Timer
+    main.o(i.main) refers to bat.o(.data) for CeUV_Delay_Timer
+    main.o(i.main) refers to bat.o(.data) for CeOV_Delay_Timer
+    main.o(i.main) refers to bat.o(.data) for PkOV_Delay_Timer
+    main.o(i.main) refers to bat.o(.data) for PkUV_Delay_Timer
     main.o(i.main) refers to main.o(.bss) for .bss
+    main.o(i.main) refers to bat.o(i.DSG_MOS) for DSG_MOS
+    main.o(i.main) refers to bat.o(i.EE_Date_Read_Check) for EE_Date_Read_Check
+    main.o(i.main) refers to rtc.o(i.RTCSetTime) for RTCSetTime
+    main.o(i.main) refers to io.o(i.SHUTDOWN) for SHUTDOWN
     uart.o(i.UART1_IRQHandler) refers to uart.o(.data) for .data
     uart.o(i.UART2_IRQHandler) refers to uart.o(.data) for .data
     uart.o(i.UART3_IRQHandler) refers to uart.o(.data) for .data
@@ -477,12 +483,6 @@ Removing Unused input sections from the image.
     Removing bat.o(.data), (4 bytes).
     Removing bat.o(.data), (4 bytes).
     Removing bat.o(.data), (4 bytes).
-    Removing bat.o(.data), (4 bytes).
-    Removing bat.o(.data), (4 bytes).
-    Removing bat.o(.data), (4 bytes).
-    Removing bat.o(.data), (4 bytes).
-    Removing bat.o(.data), (4 bytes).
-    Removing bat.o(.data), (4 bytes).
     Removing bat.o(.data), (1 bytes).
     Removing bat.o(.data), (4 bytes).
     Removing bat.o(.data), (4 bytes).
@@ -538,7 +538,7 @@ Removing Unused input sections from the image.
     Removing system_lpc17xx.o(i.SystemCoreClockUpdate), (208 bytes).
     Removing system_lpc17xx.o(.data), (4 bytes).
 
-133 unused section(s) (total 5276 bytes) removed from the image.
+127 unused section(s) (total 5252 bytes) removed from the image.
 
 ==============================================================================
 
@@ -549,59 +549,59 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     RESET                                    0x00000000   Section      204  startup_lpc17xx.o(RESET)
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
     ../clib/angel/dczerorl2.s                0x00000000   Number         0  __dczerorl2.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_copy.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  rt_div0.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_ldiv0.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_ldiv0_sigfpe.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_div0.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_ldiv0.o ABSOLUTE
     ../clib/angel/scatter.s                  0x00000000   Number         0  __scatter.o ABSOLUTE
     ../clib/angel/startup.s                  0x00000000   Number         0  __main.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
-    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
     ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
     ../clib/longlong.s                       0x00000000   Number         0  lludivv7m.o ABSOLUTE
     ../clib/memcpset.s                       0x00000000   Number         0  rt_memcpy_w.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_formal.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_outer.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
     ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
     ../fplib/fpinit.s                        0x00000000   Number         0  fpinit.o ABSOLUTE
@@ -754,49 +754,52 @@ Image Symbol Table
     i.RTCStart                               0x00003cac   Section        0  rtc.o(i.RTCStart)
     i.RTC_IRQHandler                         0x00003cc0   Section        0  rtc.o(i.RTC_IRQHandler)
     i.RTC_Send                               0x00003cdc   Section        0  rtc.o(i.RTC_Send)
-    i.Remain_CAP_Percent_get                 0x00003e04   Section        0  bat.o(i.Remain_CAP_Percent_get)
-    i.SHUTDOWN                               0x00003e7c   Section        0  io.o(i.SHUTDOWN)
-    i.SPI_6811_PutArray                      0x00003e88   Section        0  spi.o(i.SPI_6811_PutArray)
-    i.SPI_IRQHandler                         0x00003ebc   Section        0  spi.o(i.SPI_IRQHandler)
-    i.SPI_init                               0x00003f08   Section        0  spi.o(i.SPI_init)
-    i.SSP1_PutArray                          0x00003f84   Section        0  ssp1.o(i.SSP1_PutArray)
-    i.SSP1_init                              0x00003ff0   Section        0  ssp1.o(i.SSP1_init)
-    i.SysTick_Handler                        0x00004060   Section        0  main.o(i.SysTick_Handler)
-    i.SystemInit                             0x00004104   Section        0  system_lpc17xx.o(i.SystemInit)
-    i.UART1_IRQHandler                       0x000041d0   Section        0  uart.o(i.UART1_IRQHandler)
-    i.UART2_IRQHandler                       0x00004238   Section        0  uart.o(i.UART2_IRQHandler)
-    i.UART3_IRQHandler                       0x000042a0   Section        0  uart.o(i.UART3_IRQHandler)
-    i.__NVIC_EnableIRQ                       0x00004308   Section        0  uart.o(i.__NVIC_EnableIRQ)
-    __NVIC_EnableIRQ                         0x00004309   Thumb Code    26  uart.o(i.__NVIC_EnableIRQ)
-    i.__NVIC_EnableIRQ                       0x00004322   Section        0  timer.o(i.__NVIC_EnableIRQ)
-    __NVIC_EnableIRQ                         0x00004323   Thumb Code    26  timer.o(i.__NVIC_EnableIRQ)
-    i.ad_init                                0x0000433c   Section        0  ad.o(i.ad_init)
-    i.ad_start                               0x000043e0   Section        0  ad.o(i.ad_start)
-    i.i2c0_init                              0x000043f8   Section        0  i2c.o(i.i2c0_init)
-    i.i2c0_start                             0x00004470   Section        0  i2c.o(i.i2c0_start)
-    i.init_PEC15_Table                       0x000044ac   Section        0  6811.o(i.init_PEC15_Table)
-    i.main                                   0x000044e8   Section        0  main.o(i.main)
-    i.pec15                                  0x00004a7c   Section        0  6811.o(i.pec15)
-    i.timer3_init                            0x00004ab0   Section        0  timer.o(i.timer3_init)
-    i.uart1_init                             0x00004ae8   Section        0  uart.o(i.uart1_init)
-    i.uart1_send                             0x00004b64   Section        0  uart.o(i.uart1_send)
-    i.uart2_init                             0x00004b90   Section        0  uart.o(i.uart2_init)
-    i.uart3_init                             0x00004bfc   Section        0  uart.o(i.uart3_init)
-    i.uart3_send                             0x00004c68   Section        0  uart.o(i.uart3_send)
-    .constdata                               0x00004c84   Section       68  can.o(.constdata)
+    i.Remain_CAP_Percent_get                 0x00003e44   Section        0  bat.o(i.Remain_CAP_Percent_get)
+    i.SHUTDOWN                               0x00003ebc   Section        0  io.o(i.SHUTDOWN)
+    i.SPI_6811_PutArray                      0x00003ec8   Section        0  spi.o(i.SPI_6811_PutArray)
+    i.SPI_IRQHandler                         0x00003efc   Section        0  spi.o(i.SPI_IRQHandler)
+    i.SPI_init                               0x00003f48   Section        0  spi.o(i.SPI_init)
+    i.SSP1_PutArray                          0x00003fc4   Section        0  ssp1.o(i.SSP1_PutArray)
+    i.SSP1_init                              0x00004030   Section        0  ssp1.o(i.SSP1_init)
+    i.SysTick_Handler                        0x000040a0   Section        0  main.o(i.SysTick_Handler)
+    i.SystemInit                             0x00004144   Section        0  system_lpc17xx.o(i.SystemInit)
+    i.UART1_IRQHandler                       0x00004210   Section        0  uart.o(i.UART1_IRQHandler)
+    i.UART2_IRQHandler                       0x00004278   Section        0  uart.o(i.UART2_IRQHandler)
+    i.UART3_IRQHandler                       0x000042e0   Section        0  uart.o(i.UART3_IRQHandler)
+    i.__NVIC_EnableIRQ                       0x00004348   Section        0  uart.o(i.__NVIC_EnableIRQ)
+    __NVIC_EnableIRQ                         0x00004349   Thumb Code    26  uart.o(i.__NVIC_EnableIRQ)
+    i.__NVIC_EnableIRQ                       0x00004362   Section        0  timer.o(i.__NVIC_EnableIRQ)
+    __NVIC_EnableIRQ                         0x00004363   Thumb Code    26  timer.o(i.__NVIC_EnableIRQ)
+    i.ad_init                                0x0000437c   Section        0  ad.o(i.ad_init)
+    i.ad_start                               0x00004420   Section        0  ad.o(i.ad_start)
+    i.i2c0_init                              0x00004438   Section        0  i2c.o(i.i2c0_init)
+    i.i2c0_start                             0x000044b0   Section        0  i2c.o(i.i2c0_start)
+    i.init_PEC15_Table                       0x000044ec   Section        0  6811.o(i.init_PEC15_Table)
+    i.main                                   0x00004528   Section        0  main.o(i.main)
+    i.pec15                                  0x00004b6c   Section        0  6811.o(i.pec15)
+    i.timer3_init                            0x00004ba0   Section        0  timer.o(i.timer3_init)
+    i.uart1_init                             0x00004bd8   Section        0  uart.o(i.uart1_init)
+    i.uart1_send                             0x00004c54   Section        0  uart.o(i.uart1_send)
+    i.uart2_init                             0x00004c80   Section        0  uart.o(i.uart2_init)
+    i.uart3_init                             0x00004cec   Section        0  uart.o(i.uart3_init)
+    i.uart3_send                             0x00004d58   Section        0  uart.o(i.uart3_send)
+    .constdata                               0x00004d74   Section       68  can.o(.constdata)
     .data                                    0x10000000   Section       50  main.o(.data)
     .data                                    0x10000034   Section       48  can.o(.data)
     .data                                    0x10000064   Section        4  bat.o(.data)
     .data                                    0x10000068   Section        4  bat.o(.data)
     .data                                    0x1000006c   Section        4  bat.o(.data)
     .data                                    0x10000070   Section        4  bat.o(.data)
-    .data                                    0x10000074   Section       50  bat.o(.data)
-    .data                                    0x100000a8   Section        8  io.o(.data)
-    .bss                                     0x100000b0   Section     4184  6811.o(.bss)
-    .bss                                     0x10001108   Section      100  ssp1.o(.bss)
-    .bss                                     0x1000116c   Section       96  libspace.o(.bss)
-    HEAP                                     0x100011d0   Section        0  startup_lpc17xx.o(HEAP)
-    Heap_Mem                                 0x100011d0   Data           0  startup_lpc17xx.o(HEAP)
+    .data                                    0x10000074   Section        4  bat.o(.data)
+    .data                                    0x10000078   Section        4  bat.o(.data)
+    .data                                    0x1000007c   Section        4  bat.o(.data)
+    .data                                    0x10000080   Section       50  bat.o(.data)
+    .data                                    0x100000b4   Section        8  io.o(.data)
+    .bss                                     0x100000bc   Section     4184  6811.o(.bss)
+    .bss                                     0x10001114   Section      100  ssp1.o(.bss)
+    .bss                                     0x10001178   Section       96  libspace.o(.bss)
+    HEAP                                     0x100011d8   Section        0  startup_lpc17xx.o(HEAP)
+    Heap_Mem                                 0x100011d8   Data           0  startup_lpc17xx.o(HEAP)
     .data                                    0x2007c000   Section       48  uart.o(.data)
     .data                                    0x2007c030   Section       12  spi.o(.data)
     .data                                    0x2007c03c   Section      756  6811.o(.data)
@@ -806,18 +809,21 @@ Image Symbol Table
     .data                                    0x2007c490   Section        4  bat.o(.data)
     .data                                    0x2007c494   Section        4  bat.o(.data)
     .data                                    0x2007c498   Section        4  bat.o(.data)
-    .data                                    0x2007c49c   Section       12  ssp1.o(.data)
-    .data                                    0x2007c4a8   Section       16  ad7124.o(.data)
-    .data                                    0x2007c4b8   Section        4  rtc.o(.data)
-    .bss                                     0x2007c4bc   Section       64  main.o(.bss)
-    .bss                                     0x2007c4fc   Section      500  spi.o(.bss)
-    .bss                                     0x2007c6f0   Section       64  can.o(.bss)
-    .bss                                     0x2007c730   Section      500  bat.o(.bss)
-    .bss                                     0x2007c924   Section     1600  ad7124.o(.bss)
-    .bss                                     0x2007cf64   Section      100  rtc.o(.bss)
-    STACK                                    0x2007cfc8   Section      512  startup_lpc17xx.o(STACK)
-    Stack_Mem                                0x2007cfc8   Data         512  startup_lpc17xx.o(STACK)
-    __initial_sp                             0x2007d1c8   Data           0  startup_lpc17xx.o(STACK)
+    .data                                    0x2007c49c   Section        4  bat.o(.data)
+    .data                                    0x2007c4a0   Section        4  bat.o(.data)
+    .data                                    0x2007c4a4   Section        4  bat.o(.data)
+    .data                                    0x2007c4a8   Section       12  ssp1.o(.data)
+    .data                                    0x2007c4b4   Section       16  ad7124.o(.data)
+    .data                                    0x2007c4c4   Section        4  rtc.o(.data)
+    .bss                                     0x2007c4c8   Section       64  main.o(.bss)
+    .bss                                     0x2007c508   Section      500  spi.o(.bss)
+    .bss                                     0x2007c6fc   Section       64  can.o(.bss)
+    .bss                                     0x2007c73c   Section      500  bat.o(.bss)
+    .bss                                     0x2007c930   Section     1600  ad7124.o(.bss)
+    .bss                                     0x2007cf70   Section      100  rtc.o(.bss)
+    STACK                                    0x2007cfd8   Section      512  startup_lpc17xx.o(STACK)
+    Stack_Mem                                0x2007cfd8   Data         512  startup_lpc17xx.o(STACK)
+    __initial_sp                             0x2007d1d8   Data           0  startup_lpc17xx.o(STACK)
 
     Global Symbols
 
@@ -1013,35 +1019,35 @@ Image Symbol Table
     RTCSetTime                               0x00003c89   Thumb Code    32  rtc.o(i.RTCSetTime)
     RTCStart                                 0x00003cad   Thumb Code    16  rtc.o(i.RTCStart)
     RTC_IRQHandler                           0x00003cc1   Thumb Code    18  rtc.o(i.RTC_IRQHandler)
-    RTC_Send                                 0x00003cdd   Thumb Code   292  rtc.o(i.RTC_Send)
-    Remain_CAP_Percent_get                   0x00003e05   Thumb Code   114  bat.o(i.Remain_CAP_Percent_get)
-    SHUTDOWN                                 0x00003e7d   Thumb Code    10  io.o(i.SHUTDOWN)
-    SPI_6811_PutArray                        0x00003e89   Thumb Code    42  spi.o(i.SPI_6811_PutArray)
-    SPI_IRQHandler                           0x00003ebd   Thumb Code    64  spi.o(i.SPI_IRQHandler)
-    SPI_init                                 0x00003f09   Thumb Code   114  spi.o(i.SPI_init)
-    SSP1_PutArray                            0x00003f85   Thumb Code    94  ssp1.o(i.SSP1_PutArray)
-    SSP1_init                                0x00003ff1   Thumb Code   104  ssp1.o(i.SSP1_init)
-    SysTick_Handler                          0x00004061   Thumb Code   122  main.o(i.SysTick_Handler)
-    SystemInit                               0x00004105   Thumb Code   192  system_lpc17xx.o(i.SystemInit)
-    UART1_IRQHandler                         0x000041d1   Thumb Code    94  uart.o(i.UART1_IRQHandler)
-    UART2_IRQHandler                         0x00004239   Thumb Code    94  uart.o(i.UART2_IRQHandler)
-    UART3_IRQHandler                         0x000042a1   Thumb Code    94  uart.o(i.UART3_IRQHandler)
-    ad_init                                  0x0000433d   Thumb Code   150  ad.o(i.ad_init)
-    ad_start                                 0x000043e1   Thumb Code    20  ad.o(i.ad_start)
-    i2c0_init                                0x000043f9   Thumb Code   110  i2c.o(i.i2c0_init)
-    i2c0_start                               0x00004471   Thumb Code    50  i2c.o(i.i2c0_start)
-    init_PEC15_Table                         0x000044ad   Thumb Code    52  6811.o(i.init_PEC15_Table)
-    main                                     0x000044e9   Thumb Code  1428  main.o(i.main)
-    pec15                                    0x00004a7d   Thumb Code    46  6811.o(i.pec15)
-    timer3_init                              0x00004ab1   Thumb Code    48  timer.o(i.timer3_init)
-    uart1_init                               0x00004ae9   Thumb Code   116  uart.o(i.uart1_init)
-    uart1_send                               0x00004b65   Thumb Code    34  uart.o(i.uart1_send)
-    uart2_init                               0x00004b91   Thumb Code    98  uart.o(i.uart2_init)
-    uart3_init                               0x00004bfd   Thumb Code    98  uart.o(i.uart3_init)
-    uart3_send                               0x00004c69   Thumb Code    18  uart.o(i.uart3_send)
-    CAN_BIT_TIME                             0x00004c84   Data          68  can.o(.constdata)
-    Region$$Table$$Base                      0x00004cc8   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00004d08   Number         0  anon$$obj.o(Region$$Table)
+    RTC_Send                                 0x00003cdd   Thumb Code   356  rtc.o(i.RTC_Send)
+    Remain_CAP_Percent_get                   0x00003e45   Thumb Code   114  bat.o(i.Remain_CAP_Percent_get)
+    SHUTDOWN                                 0x00003ebd   Thumb Code    10  io.o(i.SHUTDOWN)
+    SPI_6811_PutArray                        0x00003ec9   Thumb Code    42  spi.o(i.SPI_6811_PutArray)
+    SPI_IRQHandler                           0x00003efd   Thumb Code    64  spi.o(i.SPI_IRQHandler)
+    SPI_init                                 0x00003f49   Thumb Code   114  spi.o(i.SPI_init)
+    SSP1_PutArray                            0x00003fc5   Thumb Code    94  ssp1.o(i.SSP1_PutArray)
+    SSP1_init                                0x00004031   Thumb Code   104  ssp1.o(i.SSP1_init)
+    SysTick_Handler                          0x000040a1   Thumb Code   122  main.o(i.SysTick_Handler)
+    SystemInit                               0x00004145   Thumb Code   192  system_lpc17xx.o(i.SystemInit)
+    UART1_IRQHandler                         0x00004211   Thumb Code    94  uart.o(i.UART1_IRQHandler)
+    UART2_IRQHandler                         0x00004279   Thumb Code    94  uart.o(i.UART2_IRQHandler)
+    UART3_IRQHandler                         0x000042e1   Thumb Code    94  uart.o(i.UART3_IRQHandler)
+    ad_init                                  0x0000437d   Thumb Code   150  ad.o(i.ad_init)
+    ad_start                                 0x00004421   Thumb Code    20  ad.o(i.ad_start)
+    i2c0_init                                0x00004439   Thumb Code   110  i2c.o(i.i2c0_init)
+    i2c0_start                               0x000044b1   Thumb Code    50  i2c.o(i.i2c0_start)
+    init_PEC15_Table                         0x000044ed   Thumb Code    52  6811.o(i.init_PEC15_Table)
+    main                                     0x00004529   Thumb Code  1592  main.o(i.main)
+    pec15                                    0x00004b6d   Thumb Code    46  6811.o(i.pec15)
+    timer3_init                              0x00004ba1   Thumb Code    48  timer.o(i.timer3_init)
+    uart1_init                               0x00004bd9   Thumb Code   116  uart.o(i.uart1_init)
+    uart1_send                               0x00004c55   Thumb Code    34  uart.o(i.uart1_send)
+    uart2_init                               0x00004c81   Thumb Code    98  uart.o(i.uart2_init)
+    uart3_init                               0x00004ced   Thumb Code    98  uart.o(i.uart3_init)
+    uart3_send                               0x00004d59   Thumb Code    18  uart.o(i.uart3_send)
+    CAN_BIT_TIME                             0x00004d74   Data          68  can.o(.constdata)
+    Region$$Table$$Base                      0x00004db8   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00004df8   Number         0  anon$$obj.o(Region$$Table)
     ms_interrupt_status                      0x10000000   Data           1  main.o(.data)
     RUN_Status                               0x10000001   Data           1  main.o(.data)
     i                                        0x10000002   Data           2  main.o(.data)
@@ -1060,19 +1066,22 @@ Image Symbol Table
     PkOV_Timer                               0x10000068   Data           4  bat.o(.data)
     OT_Timer                                 0x1000006c   Data           4  bat.o(.data)
     BAT_Timer                                0x10000070   Data           4  bat.o(.data)
-    EE_DATE_Receive_Check                    0x10000074   Data          50  bat.o(.data)
-    Light_Num                                0x100000a8   Data           1  io.o(.data)
-    PRESSED                                  0x100000a9   Data           1  io.o(.data)
-    PRESS_FLAG                               0x100000aa   Data           1  io.o(.data)
-    LED_Timer                                0x100000ac   Data           4  io.o(.data)
-    DEVICE                                   0x100000b0   Data        1112  6811.o(.bss)
-    UartSendData                             0x10000508   Data        2000  6811.o(.bss)
-    SendData                                 0x10000cd8   Data         500  6811.o(.bss)
-    pec15Table                               0x10000ecc   Data         512  6811.o(.bss)
-    CUM_BUFF                                 0x100010cc   Data          60  6811.o(.bss)
-    ssp1_receivebuff                         0x10001108   Data         100  ssp1.o(.bss)
-    __libspace_start                         0x1000116c   Data          96  libspace.o(.bss)
-    __temporary_stack_top$libspace           0x100011cc   Data           0  libspace.o(.bss)
+    COC_Delay_Timer                          0x10000074   Data           4  bat.o(.data)
+    CeOV_Delay_Timer                         0x10000078   Data           4  bat.o(.data)
+    PkOV_Delay_Timer                         0x1000007c   Data           4  bat.o(.data)
+    EE_DATE_Receive_Check                    0x10000080   Data          50  bat.o(.data)
+    Light_Num                                0x100000b4   Data           1  io.o(.data)
+    PRESSED                                  0x100000b5   Data           1  io.o(.data)
+    PRESS_FLAG                               0x100000b6   Data           1  io.o(.data)
+    LED_Timer                                0x100000b8   Data           4  io.o(.data)
+    DEVICE                                   0x100000bc   Data        1112  6811.o(.bss)
+    UartSendData                             0x10000514   Data        2000  6811.o(.bss)
+    SendData                                 0x10000ce4   Data         500  6811.o(.bss)
+    pec15Table                               0x10000ed8   Data         512  6811.o(.bss)
+    CUM_BUFF                                 0x100010d8   Data          60  6811.o(.bss)
+    ssp1_receivebuff                         0x10001114   Data         100  ssp1.o(.bss)
+    __libspace_start                         0x10001178   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x100011d8   Data           0  libspace.o(.bss)
     uart1_received_OT                        0x2007c000   Data           1  uart.o(.data)
     uart2_received_OT                        0x2007c001   Data           1  uart.o(.data)
     uart3_received_OT                        0x2007c002   Data           1  uart.o(.data)
@@ -1197,30 +1206,33 @@ Image Symbol Table
     CeUV_Timer                               0x2007c490   Data           4  bat.o(.data)
     PkUV_Timer                               0x2007c494   Data           4  bat.o(.data)
     UT_Timer                                 0x2007c498   Data           4  bat.o(.data)
-    ssp1_sendnum                             0x2007c49c   Data           2  ssp1.o(.data)
-    ssp1_receivenum                          0x2007c49e   Data           2  ssp1.o(.data)
-    ssp1_readstep                            0x2007c4a0   Data           2  ssp1.o(.data)
-    ssp1_sendpt                              0x2007c4a4   Data           4  ssp1.o(.data)
-    CUM_Count                                0x2007c4a8   Data           1  ad7124.o(.data)
-    AD7124_DataReady_Flag                    0x2007c4a9   Data           1  ad7124.o(.data)
-    AD7124_COUNT                             0x2007c4ac   Data           4  ad7124.o(.data)
-    CH_OffSet_MeasTimes                      0x2007c4b0   Data           4  ad7124.o(.data)
-    buffdata                                 0x2007c4b4   Data           4  ad7124.o(.data)
-    alarm_on                                 0x2007c4b8   Data           4  rtc.o(.data)
-    local_time                               0x2007c4bc   Data          32  main.o(.bss)
-    current_time                             0x2007c4dc   Data          32  main.o(.bss)
-    spi_receivebuff                          0x2007c4fc   Data         500  spi.o(.bss)
-    CAN_TxMsg                                0x2007c6f0   Data          32  can.o(.bss)
-    CAN_RxMsg                                0x2007c710   Data          32  can.o(.bss)
-    BATUartSendData                          0x2007c730   Data         500  bat.o(.bss)
-    AD7124_DATA_BUFF                         0x2007c924   Data          20  ad7124.o(.bss)
-    CH_OffSet                                0x2007c938   Data          80  ad7124.o(.bss)
-    uartsendbuff                             0x2007c988   Data         500  ad7124.o(.bss)
-    CH_Volt                                  0x2007cb7c   Data          80  ad7124.o(.bss)
-    CH_DATA                                  0x2007cbcc   Data          40  ad7124.o(.bss)
-    CUM_DATA                                 0x2007cbf4   Data         800  ad7124.o(.bss)
-    HEX_BUFF                                 0x2007cf14   Data          80  ad7124.o(.bss)
-    rtc_buff                                 0x2007cf64   Data         100  rtc.o(.bss)
+    DOC_Delay_Timer                          0x2007c49c   Data           4  bat.o(.data)
+    CeUV_Delay_Timer                         0x2007c4a0   Data           4  bat.o(.data)
+    PkUV_Delay_Timer                         0x2007c4a4   Data           4  bat.o(.data)
+    ssp1_sendnum                             0x2007c4a8   Data           2  ssp1.o(.data)
+    ssp1_receivenum                          0x2007c4aa   Data           2  ssp1.o(.data)
+    ssp1_readstep                            0x2007c4ac   Data           2  ssp1.o(.data)
+    ssp1_sendpt                              0x2007c4b0   Data           4  ssp1.o(.data)
+    CUM_Count                                0x2007c4b4   Data           1  ad7124.o(.data)
+    AD7124_DataReady_Flag                    0x2007c4b5   Data           1  ad7124.o(.data)
+    AD7124_COUNT                             0x2007c4b8   Data           4  ad7124.o(.data)
+    CH_OffSet_MeasTimes                      0x2007c4bc   Data           4  ad7124.o(.data)
+    buffdata                                 0x2007c4c0   Data           4  ad7124.o(.data)
+    alarm_on                                 0x2007c4c4   Data           4  rtc.o(.data)
+    local_time                               0x2007c4c8   Data          32  main.o(.bss)
+    current_time                             0x2007c4e8   Data          32  main.o(.bss)
+    spi_receivebuff                          0x2007c508   Data         500  spi.o(.bss)
+    CAN_TxMsg                                0x2007c6fc   Data          32  can.o(.bss)
+    CAN_RxMsg                                0x2007c71c   Data          32  can.o(.bss)
+    BATUartSendData                          0x2007c73c   Data         500  bat.o(.bss)
+    AD7124_DATA_BUFF                         0x2007c930   Data          20  ad7124.o(.bss)
+    CH_OffSet                                0x2007c944   Data          80  ad7124.o(.bss)
+    uartsendbuff                             0x2007c994   Data         500  ad7124.o(.bss)
+    CH_Volt                                  0x2007cb88   Data          80  ad7124.o(.bss)
+    CH_DATA                                  0x2007cbd8   Data          40  ad7124.o(.bss)
+    CUM_DATA                                 0x2007cc00   Data         800  ad7124.o(.bss)
+    HEX_BUFF                                 0x2007cf20   Data          80  ad7124.o(.bss)
+    rtc_buff                                 0x2007cf70   Data         100  rtc.o(.bss)
 
 
 
@@ -1230,9 +1242,9 @@ Memory Map of the image
 
   Image Entry point : 0x000000cd
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00005274, Max: 0x00080000, ABSOLUTE, COMPRESSED[0x0000501c])
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x0000537c, Max: 0x00080000, ABSOLUTE, COMPRESSED[0x00005118])
 
-    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00004d08, Max: 0x00080000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00004df8, Max: 0x00080000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1358,61 +1370,63 @@ Memory Map of the image
     0x00003c88   0x00003c88   0x00000024   Code   RO         1115    i.RTCSetTime        rtc.o
     0x00003cac   0x00003cac   0x00000014   Code   RO         1116    i.RTCStart          rtc.o
     0x00003cc0   0x00003cc0   0x0000001c   Code   RO         1119    i.RTC_IRQHandler    rtc.o
-    0x00003cdc   0x00003cdc   0x00000128   Code   RO         1120    i.RTC_Send          rtc.o
-    0x00003e04   0x00003e04   0x00000078   Code   RO          660    i.Remain_CAP_Percent_get  bat.o
-    0x00003e7c   0x00003e7c   0x0000000a   Code   RO          825    i.SHUTDOWN          io.o
-    0x00003e86   0x00003e86   0x00000002   PAD
-    0x00003e88   0x00003e88   0x00000034   Code   RO          261    i.SPI_6811_PutArray  spi.o
-    0x00003ebc   0x00003ebc   0x0000004c   Code   RO          263    i.SPI_IRQHandler    spi.o
-    0x00003f08   0x00003f08   0x0000007c   Code   RO          264    i.SPI_init          spi.o
-    0x00003f84   0x00003f84   0x0000006c   Code   RO          996    i.SSP1_PutArray     ssp1.o
-    0x00003ff0   0x00003ff0   0x00000070   Code   RO          998    i.SSP1_init         ssp1.o
-    0x00004060   0x00004060   0x000000a4   Code   RO            7    i.SysTick_Handler   main.o
-    0x00004104   0x00004104   0x000000cc   Code   RO         1301    i.SystemInit        system_lpc17xx.o
-    0x000041d0   0x000041d0   0x00000068   Code   RO          149    i.UART1_IRQHandler  uart.o
-    0x00004238   0x00004238   0x00000068   Code   RO          150    i.UART2_IRQHandler  uart.o
-    0x000042a0   0x000042a0   0x00000068   Code   RO          151    i.UART3_IRQHandler  uart.o
-    0x00004308   0x00004308   0x0000001a   Code   RO          152    i.__NVIC_EnableIRQ  uart.o
-    0x00004322   0x00004322   0x0000001a   Code   RO          875    i.__NVIC_EnableIRQ  timer.o
-    0x0000433c   0x0000433c   0x000000a4   Code   RO          436    i.ad_init           ad.o
-    0x000043e0   0x000043e0   0x00000018   Code   RO          439    i.ad_start          ad.o
-    0x000043f8   0x000043f8   0x00000078   Code   RO          509    i.i2c0_init         i2c.o
-    0x00004470   0x00004470   0x0000003c   Code   RO          510    i.i2c0_start        i2c.o
-    0x000044ac   0x000044ac   0x0000003c   Code   RO          327    i.init_PEC15_Table  6811.o
-    0x000044e8   0x000044e8   0x00000594   Code   RO            8    i.main              main.o
-    0x00004a7c   0x00004a7c   0x00000034   Code   RO          328    i.pec15             6811.o
-    0x00004ab0   0x00004ab0   0x00000038   Code   RO          881    i.timer3_init       timer.o
-    0x00004ae8   0x00004ae8   0x0000007c   Code   RO          153    i.uart1_init        uart.o
-    0x00004b64   0x00004b64   0x0000002c   Code   RO          155    i.uart1_send        uart.o
-    0x00004b90   0x00004b90   0x0000006c   Code   RO          156    i.uart2_init        uart.o
-    0x00004bfc   0x00004bfc   0x0000006c   Code   RO          159    i.uart3_init        uart.o
-    0x00004c68   0x00004c68   0x0000001c   Code   RO          161    i.uart3_send        uart.o
-    0x00004c84   0x00004c84   0x00000044   Data   RO          563    .constdata          can.o
-    0x00004cc8   0x00004cc8   0x00000040   Data   RO         1506    Region$$Table       anon$$obj.o
+    0x00003cdc   0x00003cdc   0x00000168   Code   RO         1120    i.RTC_Send          rtc.o
+    0x00003e44   0x00003e44   0x00000078   Code   RO          660    i.Remain_CAP_Percent_get  bat.o
+    0x00003ebc   0x00003ebc   0x0000000a   Code   RO          825    i.SHUTDOWN          io.o
+    0x00003ec6   0x00003ec6   0x00000002   PAD
+    0x00003ec8   0x00003ec8   0x00000034   Code   RO          261    i.SPI_6811_PutArray  spi.o
+    0x00003efc   0x00003efc   0x0000004c   Code   RO          263    i.SPI_IRQHandler    spi.o
+    0x00003f48   0x00003f48   0x0000007c   Code   RO          264    i.SPI_init          spi.o
+    0x00003fc4   0x00003fc4   0x0000006c   Code   RO          996    i.SSP1_PutArray     ssp1.o
+    0x00004030   0x00004030   0x00000070   Code   RO          998    i.SSP1_init         ssp1.o
+    0x000040a0   0x000040a0   0x000000a4   Code   RO            7    i.SysTick_Handler   main.o
+    0x00004144   0x00004144   0x000000cc   Code   RO         1301    i.SystemInit        system_lpc17xx.o
+    0x00004210   0x00004210   0x00000068   Code   RO          149    i.UART1_IRQHandler  uart.o
+    0x00004278   0x00004278   0x00000068   Code   RO          150    i.UART2_IRQHandler  uart.o
+    0x000042e0   0x000042e0   0x00000068   Code   RO          151    i.UART3_IRQHandler  uart.o
+    0x00004348   0x00004348   0x0000001a   Code   RO          152    i.__NVIC_EnableIRQ  uart.o
+    0x00004362   0x00004362   0x0000001a   Code   RO          875    i.__NVIC_EnableIRQ  timer.o
+    0x0000437c   0x0000437c   0x000000a4   Code   RO          436    i.ad_init           ad.o
+    0x00004420   0x00004420   0x00000018   Code   RO          439    i.ad_start          ad.o
+    0x00004438   0x00004438   0x00000078   Code   RO          509    i.i2c0_init         i2c.o
+    0x000044b0   0x000044b0   0x0000003c   Code   RO          510    i.i2c0_start        i2c.o
+    0x000044ec   0x000044ec   0x0000003c   Code   RO          327    i.init_PEC15_Table  6811.o
+    0x00004528   0x00004528   0x00000644   Code   RO            8    i.main              main.o
+    0x00004b6c   0x00004b6c   0x00000034   Code   RO          328    i.pec15             6811.o
+    0x00004ba0   0x00004ba0   0x00000038   Code   RO          881    i.timer3_init       timer.o
+    0x00004bd8   0x00004bd8   0x0000007c   Code   RO          153    i.uart1_init        uart.o
+    0x00004c54   0x00004c54   0x0000002c   Code   RO          155    i.uart1_send        uart.o
+    0x00004c80   0x00004c80   0x0000006c   Code   RO          156    i.uart2_init        uart.o
+    0x00004cec   0x00004cec   0x0000006c   Code   RO          159    i.uart3_init        uart.o
+    0x00004d58   0x00004d58   0x0000001c   Code   RO          161    i.uart3_send        uart.o
+    0x00004d74   0x00004d74   0x00000044   Data   RO          563    .constdata          can.o
+    0x00004db8   0x00004db8   0x00000040   Data   RO         1506    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x10000000, Load base: 0x00004d08, Size: 0x000011d0, Max: 0x00008000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x10000000, Load base: 0x00004df8, Size: 0x000011d8, Max: 0x00008000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x10000000   0x00004d08   0x00000032   Data   RW           11    .data               main.o
-    0x10000032   0x00004d3a   0x00000002   PAD
-    0x10000034   0x00004d3c   0x00000030   Data   RW          564    .data               can.o
-    0x10000064   0x00004d6c   0x00000004   Data   RW          670    .data               bat.o
-    0x10000068   0x00004d70   0x00000004   Data   RW          672    .data               bat.o
-    0x1000006c   0x00004d74   0x00000004   Data   RW          674    .data               bat.o
-    0x10000070   0x00004d78   0x00000004   Data   RW          676    .data               bat.o
-    0x10000074   0x00004d7c   0x00000032   Data   RW          686    .data               bat.o
-    0x100000a6   0x00004dae   0x00000002   PAD
-    0x100000a8   0x00004db0   0x00000008   Data   RW          826    .data               io.o
-    0x100000b0        -       0x00001058   Zero   RW          329    .bss                6811.o
-    0x10001108        -       0x00000064   Zero   RW          999    .bss                ssp1.o
-    0x1000116c        -       0x00000060   Zero   RW         1380    .bss                c_w.l(libspace.o)
-    0x100011cc   0x00004db8   0x00000004   PAD
-    0x100011d0        -       0x00000000   Zero   RW         1288    HEAP                startup_lpc17xx.o
+    0x10000000   0x00004df8   0x00000032   Data   RW           11    .data               main.o
+    0x10000032   0x00004e2a   0x00000002   PAD
+    0x10000034   0x00004e2c   0x00000030   Data   RW          564    .data               can.o
+    0x10000064   0x00004e5c   0x00000004   Data   RW          670    .data               bat.o
+    0x10000068   0x00004e60   0x00000004   Data   RW          672    .data               bat.o
+    0x1000006c   0x00004e64   0x00000004   Data   RW          674    .data               bat.o
+    0x10000070   0x00004e68   0x00000004   Data   RW          676    .data               bat.o
+    0x10000074   0x00004e6c   0x00000004   Data   RW          680    .data               bat.o
+    0x10000078   0x00004e70   0x00000004   Data   RW          682    .data               bat.o
+    0x1000007c   0x00004e74   0x00000004   Data   RW          684    .data               bat.o
+    0x10000080   0x00004e78   0x00000032   Data   RW          686    .data               bat.o
+    0x100000b2   0x00004eaa   0x00000002   PAD
+    0x100000b4   0x00004eac   0x00000008   Data   RW          826    .data               io.o
+    0x100000bc        -       0x00001058   Zero   RW          329    .bss                6811.o
+    0x10001114        -       0x00000064   Zero   RW          999    .bss                ssp1.o
+    0x10001178        -       0x00000060   Zero   RW         1380    .bss                c_w.l(libspace.o)
+    0x100011d8        -       0x00000000   Zero   RW         1288    HEAP                startup_lpc17xx.o
 
 
-    Execution Region RW_IRAM2 (Exec base: 0x2007c000, Load base: 0x00004db8, Size: 0x000011c8, Max: 0x00008000, ABSOLUTE, COMPRESSED[0x00000264])
+    Execution Region RW_IRAM2 (Exec base: 0x2007c000, Load base: 0x00004eb4, Size: 0x000011d8, Max: 0x00008000, ABSOLUTE, COMPRESSED[0x00000264])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1425,16 +1439,20 @@ Memory Map of the image
     0x2007c490   COMPRESSED   0x00000004   Data   RW          671    .data               bat.o
     0x2007c494   COMPRESSED   0x00000004   Data   RW          673    .data               bat.o
     0x2007c498   COMPRESSED   0x00000004   Data   RW          675    .data               bat.o
-    0x2007c49c   COMPRESSED   0x0000000c   Data   RW         1000    .data               ssp1.o
-    0x2007c4a8   COMPRESSED   0x00000010   Data   RW         1052    .data               ad7124.o
-    0x2007c4b8   COMPRESSED   0x00000004   Data   RW         1122    .data               rtc.o
-    0x2007c4bc        -       0x00000040   Zero   RW            9    .bss                main.o
-    0x2007c4fc        -       0x000001f4   Zero   RW          265    .bss                spi.o
-    0x2007c6f0        -       0x00000040   Zero   RW          562    .bss                can.o
-    0x2007c730        -       0x000001f4   Zero   RW          661    .bss                bat.o
-    0x2007c924        -       0x00000640   Zero   RW         1051    .bss                ad7124.o
-    0x2007cf64        -       0x00000064   Zero   RW         1121    .bss                rtc.o
-    0x2007cfc8        -       0x00000200   Zero   RW         1287    STACK               startup_lpc17xx.o
+    0x2007c49c   COMPRESSED   0x00000004   Data   RW          679    .data               bat.o
+    0x2007c4a0   COMPRESSED   0x00000004   Data   RW          681    .data               bat.o
+    0x2007c4a4   COMPRESSED   0x00000004   Data   RW          683    .data               bat.o
+    0x2007c4a8   COMPRESSED   0x0000000c   Data   RW         1000    .data               ssp1.o
+    0x2007c4b4   COMPRESSED   0x00000010   Data   RW         1052    .data               ad7124.o
+    0x2007c4c4   COMPRESSED   0x00000004   Data   RW         1122    .data               rtc.o
+    0x2007c4c8        -       0x00000040   Zero   RW            9    .bss                main.o
+    0x2007c508        -       0x000001f4   Zero   RW          265    .bss                spi.o
+    0x2007c6fc        -       0x00000040   Zero   RW          562    .bss                can.o
+    0x2007c73c        -       0x000001f4   Zero   RW          661    .bss                bat.o
+    0x2007c930        -       0x00000640   Zero   RW         1051    .bss                ad7124.o
+    0x2007cf70        -       0x00000064   Zero   RW         1121    .bss                rtc.o
+    0x2007cfd4   COMPRESSED   0x00000004   PAD
+    0x2007cfd8        -       0x00000200   Zero   RW         1287    STACK               startup_lpc17xx.o
 
 
 ==============================================================================
@@ -1447,14 +1465,14 @@ Image component sizes
       7402        138          0        756       4184      24526   6811.o
        188         18          0          0          0        801   ad.o
        932         58          0         16       1600       5674   ad7124.o
-      4810        138          0        418        500      14004   bat.o
+      4810        138          0        442        500      14004   bat.o
        412         82         68         48         64      31548   can.o
        108         18          0          0          0       2262   gpio_lpc17xx.o
        404         40          0         12          0       2391   i2c.o
        848         24          0          8          0       2702   io.o
-      1594        212          0         50         64      53031   main.o
+      1770        246          0         50         64      53155   main.o
        132         10          0          0          0       1516   pin_lpc17xx.o
-       496         38          0          4        100       3283   rtc.o
+       560         38          0          4        100       3335   rtc.o
        252         32          0         12        500       2173   spi.o
        220         22          0         12        100       1698   ssp1.o
         64         26        204          0        512        972   startup_lpc17xx.o
@@ -1463,9 +1481,9 @@ Image component sizes
        750         78          0         48          0      32858   uart.o
 
     ----------------------------------------------------------------------
-     18912        954        336       1388       7624     180826   Object Totals
+     19152        988        336       1412       7628     181002   Object Totals
          0          0         64          0          0          0   (incl. Generated)
-        14          0          0          4          0          0   (incl. Padding)
+        14          0          0          4          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1495,8 +1513,8 @@ Image component sizes
          2          0          0          0          0         68   use_no_semi.o
 
     ----------------------------------------------------------------------
-       472         16          0          0        100        664   Library Totals
-        10          0          0          0          4          0   (incl. Padding)
+       472         16          0          0         96        664   Library Totals
+        10          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1505,7 +1523,7 @@ Image component sizes
        462         16          0          0         96        664   c_w.l
 
     ----------------------------------------------------------------------
-       472         16          0          0        100        664   Library Totals
+       472         16          0          0         96        664   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -1514,15 +1532,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     19384        970        336       1388       7724     177186   Grand Totals
-     19384        970        336        788       7724     177186   ELF Image Totals (compressed)
-     19384        970        336        788          0          0   ROM Totals
+     19624       1004        336       1412       7724     177362   Grand Totals
+     19624       1004        336        800       7724     177362   ELF Image Totals (compressed)
+     19624       1004        336        800          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                19720 (  19.26kB)
-    Total RW  Size (RW Data + ZI Data)              9112 (   8.90kB)
-    Total ROM Size (Code + RO Data + RW Data)      20508 (  20.03kB)
+    Total RO  Size (Code + RO Data)                19960 (  19.49kB)
+    Total RW  Size (RW Data + ZI Data)              9136 (   8.92kB)
+    Total ROM Size (Code + RO Data + RW Data)      20760 (  20.27kB)
 
 ==============================================================================
 

@@ -292,7 +292,7 @@ int main(void){
 							Cycle_Times = EE_Cycle_Times;						
 //							Rem_CAP_mAh = 18700;	//当EEPROM中剩余容量值不正确时，用于手动调整容量值。打开改行，调整值后下载，屏蔽改行再下载一次。
 						
-							//读取的电量百分比大于根据电压判断的，且超过5%差值，则判断为电池放置时间很久由于自放电等原因容量产生偏差，
+//读取的电量百分比大于根据电压判断的，且超过5%差值，则判断为电池放置时间很久由于自放电等原因容量产生偏差，
 //							if(
 //									((EE_Remain_CAP_Percent > _Remain_CAP_Percent) && ((EE_Remain_CAP_Percent - _Remain_CAP_Percent) > 20)) ||
 //									((_Remain_CAP_Percent > EE_Remain_CAP_Percent) && ((_Remain_CAP_Percent - EE_Remain_CAP_Percent) > 20))
@@ -334,6 +334,8 @@ int main(void){
 					//PkUV保护和恢复计时
 					if((BAT_Protect_Alarm&PkUV_bit)>0) 	PkUV_Timer++;
 
+				
+				
 					if(CH_Volt[0] == 0) RUN_Status = 0x10;	//检测到AD芯片通道0（电流检测通道）的电压为0时（通常在Current_offset附近），认为AD芯片工作异常，自动关机
 				
 					if(Measure_Num > 52){
@@ -361,50 +363,64 @@ int main(void){
 						if((BAT_Protect_Alarm&OT_bit)>0) 	OT_Timer++;		
 						//UT保护和恢复计时
 						if((BAT_Protect_Alarm&UT_bit)>0) 	UT_Timer++;	
-						
-//						if((BAT_Protect_Status&COC_bit)>0){	//延时30s自恢复
-//							COC_Delay_Timer++;
-//							if(COC_Delay_Timer > 30){
-//								COC_Delay_Timer = 0;
-//								BAT_Protect_Status &= ~COC_bit;
-//							}
-//						}
-//						if((BAT_Protect_Status&DOC0_bit)>0){//延时30s自恢复
-//							DOC_Delay_Timer++;
-//							if(DOC_Delay_Timer > 30){
-//								DOC_Delay_Timer = 0;
-//								BAT_Protect_Status &= ~DOC0_bit;
-//							}							
-//						}
-//						if((BAT_Protect_Status&CeUV_bit)>0){//延时30s自恢复
-//							CeUV_Delay_Timer++;
-//							if(CeUV_Delay_Timer > 30){
-//								CeUV_Delay_Timer = 0;
-//								BAT_Protect_Status &= ~CeUV_bit;
-//							}							
-//						}
-//						if((BAT_Protect_Status&CeOV_bit)>0){//延时30s自恢复
-//							CeOV_Delay_Timer++;
-//							if(CeOV_Delay_Timer > 30){
-//								CeOV_Delay_Timer = 0;
-//								BAT_Protect_Status &= ~CeOV_bit;
-//							}							
-//						}						
-//						if((BAT_Protect_Status&PkOV_bit)>0){//延时30s自恢复
-//							PkOV_Delay_Timer++;
-//							if(PkOV_Delay_Timer > 30){
-//								PkOV_Delay_Timer = 0;
-//								BAT_Protect_Status &= ~PkOV_bit;
-//							}							
-//						}
-//						if((BAT_Protect_Status&PkUV_bit)>0){//延时30s自恢复
-//							PkUV_Delay_Timer++;
-//							if(PkUV_Delay_Timer > 30){
-//								PkUV_Delay_Timer = 0;
-//								BAT_Protect_Status &= ~PkUV_bit;
-//							}							
-//						}						
-						
+
+						#ifdef COC_Delay_Recovery						
+							if((BAT_Protect_Status&COC_bit)>0){	//延时30s自恢复
+								COC_Delay_Timer++;
+								if(COC_Delay_Timer > COC_Delay_Recovery_Time){
+									COC_Delay_Timer = 0;
+									BAT_Protect_Status &= ~COC_bit;
+								}
+							}
+						#endif
+						#ifdef DOC0_Delay_Recovery	
+							if((BAT_Protect_Status&DOC0_bit)>0){//延时30s自恢复
+								DOC_Delay_Timer++;
+								if(DOC_Delay_Timer > DOC0_Delay_Recovery_Time){
+									DOC_Delay_Timer = 0;
+									BAT_Protect_Status &= ~DOC0_bit;
+								}							
+							}
+						#endif
+						#ifdef CeUV_Delay_Recovery	
+							if((BAT_Protect_Status&CeUV_bit)>0){//延时30s自恢复
+								CeUV_Delay_Timer++;
+								if(CeUV_Delay_Timer > CeUV_Delay_Recovery_Time){
+									CeUV_Delay_Timer = 0;
+									BAT_Protect_Status &= ~CeUV_bit;
+								}							
+							}
+						#endif
+						#ifdef CeOV_Delay_Recovery
+							if((BAT_Protect_Status&CeOV_bit)>0){//延时30s自恢复
+								CeOV_Delay_Timer++;
+								if(CeOV_Delay_Timer > CeOV_Delay_Recovery_Time){
+									CeOV_Delay_Timer = 0;
+									BAT_Protect_Status &= ~CeOV_bit;
+								}							
+							}
+						#endif
+						#ifdef PkOV_Delay_Recovery
+							if((BAT_Protect_Status&PkOV_bit)>0){//延时30s自恢复
+								PkOV_Delay_Timer++;
+								if(PkOV_Delay_Timer > PkOV_Delay_Recovery_Time){
+									PkOV_Delay_Timer = 0;
+									BAT_Protect_Status &= ~PkOV_bit;
+								}							
+							}
+						#endif
+						#ifdef PkUV_Delay_Recovery
+							if((BAT_Protect_Status&PkUV_bit)>0){//延时30s自恢复
+								PkUV_Delay_Timer++;
+								if(PkUV_Delay_Timer > PkUV_Delay_Recovery_Time){
+									PkUV_Delay_Timer = 0;
+									BAT_Protect_Status &= ~PkUV_bit;
+								}							
+							}						
+						#endif
+							
+							
+							
 						current_time = RTCGetTime();
 						if(	(current_time.RTC_Year > 2020)	||
 								(current_time.RTC_Yday > MTA_Alarm_days)
@@ -492,7 +508,7 @@ int main(void){
 							local_time.RTC_Hour = 0;
 							local_time.RTC_Mday = 1;
 							local_time.RTC_Wday = 3;
-							local_time.RTC_Yday = 1;
+							local_time.RTC_Yday = 0;
 							local_time.RTC_Mon = 1;
 							local_time.RTC_Year = 2020;
 							RTCSetTime( local_time );		/* Set local time */	

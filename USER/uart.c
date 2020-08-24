@@ -71,11 +71,11 @@ void uart1_receive(uint8_t *p,uint16_t num){
 
 void UART1_IRQHandler(void){
 	switch((LPC_UART1->IIR&0x0E)>>1){
-		case 0x01:
+		case 0x01:	//发送中断
 			uart1_sendnum--;
 			if(uart1_sendnum>0) LPC_UART1->THR = *(uart1_sendpt++);
 			break;		
-		case 0x02:
+		case 0x02:	//接收中断
 			*uart1_receivept = LPC_UART1->RBR;
 			uart1_receivestatus = Receive_Doing;
 			uart1_receivept++;
